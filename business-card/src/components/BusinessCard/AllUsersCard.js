@@ -1,31 +1,34 @@
 import React, {useState, useEffect} from 'react';
 import {Route, Link } from 'react-router-dom'
 import axios from 'axios';
+import axiosWithAuth from '../Axios/axiosWithAuth'
 
-export default function AllUsersCards(){
+export default function AllUsersCard2(){
 const [data, setData] = useState([]);
 const [query, setQuery] = useState("");
 
+console.log('Hello Crazy Wolrd')
   const handleSearchChange = e => {
     setQuery(e.target.value);
   };
 
   useEffect(() => {
-    axios
-      .get(`https://randomuser.me/api/1.0/?results=30&seed=may`)
+    axiosWithAuth()
+      .get(`https://business-card-collector.herokuapp.com/api/users/cards`)
       .then(res => {
-        const profiles = res.data.results.filter(
-          c =>
-            c.name.first.toLowerCase().includes(query.toLowerCase()) ||
-            c.name.last.toLowerCase().includes(query.toLowerCase())
-        );
+        console.log(res, '<---results')
+        // const profiles = res.data.results.filter(
+        //   c =>
+        //     c.name.first.toLowerCase().includes(query.toLowerCase()) ||
+        //     c.name.last.toLowerCase().includes(query.toLowerCase())
+        // );
 
-        console.log('profiles', profiles);
+        // console.log('profiles', profiles);
 
-        setData(profiles);
-        console.log(res.data.results, "<-res");
+        // setData(profiles);
+        // console.log(res.data.results, "<-res");
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err, 'Yo, Try again'));
   }, [query]);
 
   const addToUserListHandler = e =>{
@@ -33,8 +36,9 @@ const [query, setQuery] = useState("");
   }
 
   return (
-    <div>
-      <form>
+    <div> 
+        <h2>Hi Crazy World</h2>
+      {/* <form>
         <label>Search...</label>
         <input
           id="chars"
@@ -67,7 +71,7 @@ const [query, setQuery] = useState("");
             // </div>
         
       ))}
-    </div>
+    </div> */}
     </div>
   );
 }

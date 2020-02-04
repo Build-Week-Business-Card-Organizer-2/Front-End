@@ -34,7 +34,7 @@ const [query, setQuery] = useState("");
 
   return (
     <div> 
-        <h2>Bring Data</h2>
+        
       {/* <form>
         <label>Search...</label>
         <input
