@@ -7,6 +7,8 @@ import BusinessCard from './components/BusinessCard/BusinessCard'
 import AllUsersCards from './components/BusinessCard/AllUsersCard'
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 function App() {
+
+  
   return (
     <div className="App">
       <Router>
@@ -19,6 +21,7 @@ function App() {
           </div>
           {/* <BusinessCard /> */}
           <Switch>
+
           <Route exact path="/">
             <h1>Business Card Organizer</h1>
             <h3>Home Page</h3>
