@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {Route, Link } from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import axios from 'axios';
 
 const Call = (props) => {
@@ -63,14 +63,21 @@ const [query, setQuery] = useState("");
           {item.id.value || 'something' } {/*change to amount of card from user */}
         </div>
         <div style={{border : '1px solid red', display: 'inline-flex'}}>
-            <li><Link to="/my-phone">Phone</Link></li>
+            {/* <li><Link to="/my-phone">Phone</Link></li>
+            <li><Link to='/my-email'>Email</Link></li>
+            <li><Link to='/my-site'>Globe</Link></li> */}
+
+            <Router>
+    <Link to='/somethingWeird'>Something EMAIL</Link>
+    <li><Link to="/my-phone">Phone</Link></li>
             <li><Link to='/my-email'>Email</Link></li>
             <li><Link to='/my-site'>Globe</Link></li>
-            
-            
-            
-            </div>
-            <Route path={`/my-phone`}>
+<Switch>
+<Route path='/somethingWeird'> 
+        <Email/>
+      </Route>
+
+      <Route path={`/my-phone`}>
         {/*dynamic path */}
         <Call/>
       </Route>
@@ -82,6 +89,13 @@ const [query, setQuery] = useState("");
         {/*dynamic path */}
         <Website/>
       </Route>
+</Switch>
+</Router>
+            
+            
+            
+            </div>
+           
             </>
         
       ))}
