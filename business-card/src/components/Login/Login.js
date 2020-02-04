@@ -54,6 +54,7 @@ const Login = () => (
           {errors.password && touched.password && (
             <div className="input-feedback">{errors.password}</div>
           )}
+          <br></br>
           <button type="submit" disabled={isSubmitting}>
             Login
           </button>
