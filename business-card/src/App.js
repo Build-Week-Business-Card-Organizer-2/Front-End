@@ -16,13 +16,13 @@ function App() {
               <Link to="/privateRoute">Private Route </Link>
           </div>
           <Switch>
-          <Route exact path="/">
-            <h1>Business Card Organizer</h1>
-            <h3>Home Page</h3>
-          </Route>
-          <Route path="/login" component={Login}/>
-          <Route path="/signUp" component={SignUp}/>
-          <PrivateRoute path="/PrivateRoute" component={BusinessCard}/>
+            <Route exact path="/">
+              <h1>Business Card Organizer</h1>
+              <h3>Home Page</h3>
+            </Route>
+            <Route path="/login" component={Login}/>
+            <Route path="/signUp" component={SignUp}/>
+            <PrivateRoute path="/PrivateRoute" component={BusinessCard}/>
         </Switch>
       </Router>
     </div>
