@@ -1,12 +1,25 @@
 import React from "react";
 import { Formik } from "formik";
-
-const ValidatedLoginForm = () => (
+import axios from 'axios'
+import axiosWithAuth from "../Axios/axiosWithAuth"
+const Login = () => (
   <Formik
-    initialValues={{ email: "", password: "" }}
+    initialValues={{ username: "", password: "" }}
     onSubmit={(values, { setSubmitting }) => {
       setTimeout(() => {
         console.log("Logging in", values);
+        axiosWithAuth().post("api/users/login", values)
+        .then(response=>{
+            console.log(response);
+            localStorage.setItem('token',response.data.token);
+        })
+        axios.get("https://business-card-collector.herokuapp.com/api/users")
+        .then(res=>{
+            console.log(res);
+        })
+        .catch(err=>{
+            console.log(err)
+        })
         setSubmitting(false);
       }, 500);
     }}>
@@ -14,21 +27,21 @@ const ValidatedLoginForm = () => (
       const {values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit} = props;
       return (
         <form onSubmit={handleSubmit}>
-          <label htmlFor="email">Email</label>
+          <label htmlFor="username">Username</label>
           <input
-            name="email"
+            name="username"
             type="text"
             placeholder="Enter your email"
             value={values.email}
             onChange={handleChange}
             onBlur={handleBlur}
-            className={errors.email && touched.email && "error"}
+            className={errors.username && touched.username && "error"}
           />
-          {errors.email && touched.email && (
-            <div className="input-feedback">{errors.email}</div>
+          {errors.username && touched.username && (
+            <div className="input-feedback">{errors.username}</div>
           )}
           <br></br>
-          <label htmlFor="email">Password</label>
+          <label htmlFor="password">Password</label>
           <input
             name="password"
             type="password"
@@ -50,4 +63,4 @@ const ValidatedLoginForm = () => (
   </Formik>
 );
 
-export default ValidatedLoginForm;
+export default Login;
