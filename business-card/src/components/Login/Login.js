@@ -1,7 +1,7 @@
 import React from "react";
 import { Formik } from "formik";
 
-const Login = () => (
+const ValidatedLoginForm = () => (
   <Formik
     initialValues={{ email: "", password: "" }}
     onSubmit={(values, { setSubmitting }) => {
@@ -41,7 +41,6 @@ const Login = () => (
           {errors.password && touched.password && (
             <div className="input-feedback">{errors.password}</div>
           )}
-          <br></br>
           <button type="submit" disabled={isSubmitting}>
             Login
           </button>
@@ -51,4 +50,4 @@ const Login = () => (
   </Formik>
 );
 
-export default Login;
+export default ValidatedLoginForm;
