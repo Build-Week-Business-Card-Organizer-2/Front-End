@@ -58,7 +58,7 @@ const [query, setQuery] = useState("");
 const [filter, setFilter] = useState([])
 
   const handleSearchChange = e => {
-    console.log(e.target.value)
+    console.log('WHAT I TYPED', e.target.value)
     console.log(e.currentTarget)
     console.log(query)
     console.log('filter ---->', filter)
