@@ -17,16 +17,16 @@ console.log('Hello Crazy Wolrd')
       .get(`https://business-card-collector.herokuapp.com/api/users/cards`)
       .then(res => {
         console.log(res, '<---results')
-        // const profiles = res.data.results.filter(
-        //   c =>
-        //     c.name.first.toLowerCase().includes(query.toLowerCase()) ||
-        //     c.name.last.toLowerCase().includes(query.toLowerCase())
-        // );
+        console.log(res.data)
+        const profiles = res.data.filter(
+          c =>
+            c.person_name.toLowerCase().includes(query.toLowerCase())
+        );
 
-        // console.log('profiles', profiles);
+        console.log('profiles', profiles);
 
-        // setData(profiles);
-        // console.log(res.data.results, "<-res");
+        setData(profiles);
+        console.log(res.data, "<-res");
       })
       .catch(err => console.log(err, 'Yo, Try again'));
   }, [query]);
@@ -38,7 +38,7 @@ console.log('Hello Crazy Wolrd')
   return (
     <div> 
         <h2>Hi Crazy World</h2>
-      {/* <form>
+      <form>
         <label>Search...</label>
         <input
           id="chars"
@@ -60,18 +60,19 @@ console.log('Hello Crazy Wolrd')
         
         <div style={{background : 'tomato', margin: '20px', width: '350px', height: '200px'}}>
             <span onClick={addToUserListHandler} style={{cursor: 'pointer'}}> ⭐️</span>
-                      <img alt={item.name.first} src={item.picture.thumbnail} style={{width: '50px', height: '50px'}}/>
+                      <img alt={item.person_name} src='https://picsum.photos/200' style={{width: '50px', height: '50px'}}/>
 
-          <h2>{item.name.first} {item.name.last}</h2>
+          <h3>{item.person_name}</h3>
+          <h4>{item.business_name}</h4>
           <p>{item.email}</p>
-          <p>Business: {item.phone}</p>
-          <p>Cell: {item.cell}</p>
+        <p>{item.category}</p>
+
         </div>
 
             // </div>
         
       ))}
-    </div> */}
+    </div>
     </div>
   );
 }

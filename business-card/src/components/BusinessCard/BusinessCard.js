@@ -39,7 +39,6 @@ export default function BusinessCard(){
             flex: 2,
             flexShrink: 3.4
         }}>
-            <h1>Something</h1>
             <Link to='/allusercards'>All Cards from All Users</Link>
         <ProfileCard /> {/*Needs API data */}
         <AllCards/>
