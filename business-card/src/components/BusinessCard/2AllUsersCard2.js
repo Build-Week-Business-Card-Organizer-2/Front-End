@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {Route, Link } from 'react-router-dom'
 import axios from 'axios';
-import axiosWithAuth from '../Axios/axiosWithAuth'
 
 export default function AllUsersCard2(){
 const [data, setData] = useState([]);
@@ -12,22 +11,21 @@ const [query, setQuery] = useState("");
   };
 
   useEffect(() => {
-    axiosWithAuth()
-      .get(`https://business-card-collector.herokuapp.com/api/users/cards`)
+    axios
+      .get(`https://business-card-collector.herokuapp.com/api/cards`)
       .then(res => {
-        console.log(res, '<---results')
-        console.log(res.data)
-        const profiles = res.data.filter(
-          c =>
-            c.person_name.toLowerCase().includes(query.toLowerCase())
-        );
+        // const profiles = res.data.results.filter(
+        //   c =>
+        //     c.name.first.toLowerCase().includes(query.toLowerCase()) ||
+        //     c.name.last.toLowerCase().includes(query.toLowerCase())
+        // );
 
-        console.log('profiles', profiles);
+        // console.log('profiles', profiles);
 
-        setData(profiles);
-        console.log(res.data, "<-res");
+        // setData(profiles);
+        // console.log(res.data.results, "<-res");
       })
-      .catch(err => console.log(err, 'Yo, Try again'));
+      .catch(err => console.log(err));
   }, [query]);
 
   const addToUserListHandler = e =>{
@@ -36,8 +34,8 @@ const [query, setQuery] = useState("");
 
   return (
     <div> 
-        <h2>Hi Crazy World</h2>
-      <form>
+        
+      {/* <form>
         <label>Search...</label>
         <input
           id="chars"
@@ -59,19 +57,18 @@ const [query, setQuery] = useState("");
         
         <div style={{background : 'tomato', margin: '20px', width: '350px', height: '200px'}}>
             <span onClick={addToUserListHandler} style={{cursor: 'pointer'}}> ⭐️</span>
-                      <img alt={item.person_name} src='https://picsum.photos/200' style={{width: '50px', height: '50px'}}/>
+                      <img alt={item.name.first} src={item.picture.thumbnail} style={{width: '50px', height: '50px'}}/>
 
-          <h3>{item.person_name}</h3>
-          <h4>{item.business_name}</h4>
+          <h2>{item.name.first} {item.name.last}</h2>
           <p>{item.email}</p>
-        <p>{item.category}</p>
-
+          <p>Business: {item.phone}</p>
+          <p>Cell: {item.cell}</p>
         </div>
 
             // </div>
         
       ))}
-    </div>
+    </div> */}
     </div>
   );
 }
