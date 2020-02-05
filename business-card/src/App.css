@@ -48,3 +48,9 @@
 .NavBar a:hover{
   background-color:rgb(204, 204, 204);
 }
+.signUpForm {
+  max-width:300px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: left;
+}

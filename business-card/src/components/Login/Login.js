@@ -2,17 +2,37 @@ import React from "react";
 import { Formik } from "formik";
 import {Link} from "react-router-dom";
 import styled from "styled-components";
-import axios from 'axios'
+import axios from 'axios';
 import axiosWithAuth from "../Axios/axiosWithAuth"
 
-const Button = styled.button`
-background: transparent;
-border-radius: 3px;
-border: 2px solid red;
-color: blue;
-margin: 0 1em;
-padding: 0.25em 1em;
+const Container = styled.div`
+margin:5rem 0rem 0rem 0rem;
+display:flex;
+flex-direction:column;
+justify-content: center
 `
+const Button = styled.button`
+display:flex;
+align-items:center;
+background: lightGrey;
+justify-content:center;
+border-radius: 5px;
+border: 2px lightGrey;
+color: white;
+margin: 2em 0em 2em 0em;
+padding: .75em 2em;
+width: 100%;
+`;
+const P =styled.p`
+margin: 0rem;
+font-size: .65rem;
+`;
+const Input = styled.input`
+  width: 300px;
+  height: 1.5rem;
+  border-bottom:solid grey;
+  background-color: #fff;
+`;
 const Login = () => (
 
 
@@ -39,23 +59,27 @@ const Login = () => (
     {props => {
       const {values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit} = props;
       return (
-        <form onSubmit={handleSubmit}>
-          <h2>Sign in</h2>
+        <Container>
+          <h1>Sign in</h1>
+          <br></br>
+        <form className="signUpForm" onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label> <br></br>
-          <input name="username" type="text" value={values.username} onChange={handleChange} onBlur={handleBlur} className={errors.username && touched.username && "error"}/>
+          <Input name="username" type="text" value={values.username} onChange={handleChange} onBlur={handleBlur} className={errors.username && touched.username && "error"}/>
           {errors.username && touched.username && (<div className="input-feedback">{errors.username}</div>)}
           <br></br>
 
           <label htmlFor="password">Password</label> <br></br>
-          <input name="password" type="password" value={values.password} onChange={handleChange} onBlur={handleBlur} className={errors.password && touched.password && "error"}/>
+          <Input name="password" type="password" value={values.password} onChange={handleChange} onBlur={handleBlur} className={errors.password && touched.password && "error"}/>
           {errors.password && touched.password && (<div className="input-feedback">{errors.password}</div>)}
           <br></br>
-          <button type="submit" disabled={isSubmitting}>
-            Login
-          </button>
-          <p>Don't have an account?</p>
-          <Link to="/SignUp">Sign Up</Link>
+          <Button type="submit" disabled={isSubmitting}>
+            Sign In
+          </Button>
+          
         </form>
+        <p>Don't have an account?</p>
+          <Link to="/SignUp">Sign Up</Link>
+        </Container>
       );
     }}
   </Formik>
