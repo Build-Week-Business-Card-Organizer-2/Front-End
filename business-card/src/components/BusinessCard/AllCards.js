@@ -2,10 +2,17 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import axios from 'axios';
 import axiosWithAuth from '../Axios/axiosWithAuth'
+import CardItems from './CardItems';
 
-// const
+// We need to continuously re
 
 const MyCards = (props) =>{
+  const [refresh, setRefresh] = useState(props.location.data)
+
+  useEffect(()=>{
+setRefresh(props.location.data)
+  }, [props.location.data])
+
   console.log('My Cards brought in data', props.location)
   return(
     <>
@@ -30,44 +37,9 @@ const MyCards = (props) =>{
 }}>
 
 
- {console.log("~", props.location.data)}
-<h1 style={{color: 'yellow'}}>{props.location.data ?  console.log(props.location.data.map(item=> item)) : console.log('No')}</h1>
-
 {console.log("~", props.location.data)}
       {
-      props.location.data.map(item => (
-
-          <div key={item.id} style={{display: 'inline-flex'}}>
-        <div style={{background : 'tomato', margin: '20px', width: '350px', height: '200px'}}>
-            <span style={{cursor: 'pointer'}} onClick={props.handleDelete}> ❌</span>
-                      <img alt={item.person_name} src='https://picsum.photos/200' style={{width: '50px', height: '50px'}}/>
-
-          <h2>{item.person_name}</h2>
-          <p>{item.business_name}</p>
-          <p>{item.email}</p>
-          <p>Cell: {item.phone_number}</p>
-        </div>
-
-            </div>
-        
-      ))}
-
-      {/* {console.log("~", data)}
-      {data.map(item => (
-        //   <div style={{display: 'inline-flex'}}>
-        <div style={{background : 'tomato', margin: '20px', width: '350px', height: '200px'}}>
-            <span style={{cursor: 'pointer'}} onClick={handleDelete}> ❌</span>
-                      <img alt={item.name.first} src={item.picture.thumbnail} style={{width: '50px', height: '50px'}}/>
-
-          <h2>{item.name.first} {item.name.last}</h2>
-          <p>{item.email}</p>
-          <p>Business: {item.phone}</p>
-          <p>Cell: {item.cell}</p>
-        </div>
-
-            // </div>
-        
-      ))} */}
+      props.location.data.map(item => ( <CardItems item={item} key={item.id} />))}
     </div>
 
   </>
@@ -97,6 +69,7 @@ const [filter, setFilter] = useState([])
 )
 console.log('changes on filter data', filterData)
 setFilter(filterData);
+
 setQuery(e.target.value);
 
 
@@ -119,20 +92,20 @@ setQuery(e.target.value);
     axiosWithAuth()
       .get(`https://business-card-collector.herokuapp.com/api/users/cards/${userID}/collection`)
       .then(res => {
-        // console.log(res, "<---ALL CARDS RES")
         const profiles = res.data
         // .filter(
         //   c =>
         //     c.person_name.toLowerCase().includes(query.toLowerCase()));
 
         setData(profiles);
-        // setFilter(profiles);
+        setFilter(profiles);
         console.log(res.data, "<-res");
       })
       .catch(err => console.log(err));
   }, []);
 
   useEffect(()=>{
+setFilter(filter)
 
   }, [filter])
 
