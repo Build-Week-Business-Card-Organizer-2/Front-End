@@ -7,7 +7,6 @@ export default function AllUsersCard2(){
 const [data, setData] = useState([]);
 const [query, setQuery] = useState("");
 
-console.log('Hello Crazy Wolrd')
   const handleSearchChange = e => {
     setQuery(e.target.value);
   };

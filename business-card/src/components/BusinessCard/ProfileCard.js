@@ -14,22 +14,27 @@ const Website = (props) => {
 }
 export default function ProfileCard(){
 const [data, setData] = useState();
-const [query, setQuery] = useState("");
+// const [query, setQuery] = useState("");
 
 
-  const handleSearchChange = e => {
-    setQuery(e.target.value);
-  };
+  // const handleSearchChange = e => {
+  //   setQuery(e.target.value);
+  // };
+
+const userID = 5
 
   useEffect(() => {
-    axiosWithAuth()
+    // axiosWithAuth()
     
-      .get(`https://business-card-collector.herokuapp.com/api/users/`)
-      .then(res => {const grabProf = res.data.length -1
-        console.log('grabProf', grabProf )
-      return axiosWithAuth().get(`https://business-card-collector.herokuapp.com/api/users/${grabProf}`)
+    //   .get(`https://business-card-collector.herokuapp.com/api/users/`)
+    //   .then(res => {const grabProf = res.data.length -1
+    //     console.log('grabProf', grabProf )
+    //   return axiosWithAuth().get(`https://business-card-collector.herokuapp.com/api/users/${grabProf}`)
 
-    } )
+    // } )
+
+   axiosWithAuth()
+   .get(`https://business-card-collector.herokuapp.com/api/users/${userID}`)
       .then(fee => {
 
         console.log('One User --->', fee)
@@ -37,7 +42,7 @@ const [query, setQuery] = useState("");
         setData(fee.data);
       })
       .catch(err => console.log(err, 'Yo, Try again'));
-  }, [query]);
+  }, []);
 
   return (
     <div>
@@ -47,9 +52,20 @@ data ? <>
 
 
 <div style={{border : '1px solid red', margin: '50px', /*display: 'flex'*/}}>
-                      {/* <img alt={item.name} src={`https://picsum.photos/200`} style={{borderRadius: '50%' }}/> */}
-                      <img alt={data.user.name} src={data.user.profile_img_src || `https://picsum.photos/200`} style={{borderRadius: '50%', height:'200px' }}/>
+                      {/* <img alt={data.user.name} src={`https://picsum.photos/200`} style={{borderRadius: '50%' }}/> */}
 
+                      <div className="image-cropper" style={{
+                         width:' 200px', 
+                         height: '200px', 
+                         position: 'relative',
+                         overflow: 'hidden',
+                         display: 'inline-block',
+                         borderRadius: '50%'
+                      }}>
+                      <img alt={data.user.name} src={data.user.profile_img_src || `https://picsum.photos/310`} style={{
+                        display: 'inline', margin: '-50px', backgroundSize: 'cover', height: '300px',
+                        }}/>
+                      </div>
 
           <h2>{data.user.name}</h2>
           <p>{data.user.job_description}</p> {/*change to Profession */}

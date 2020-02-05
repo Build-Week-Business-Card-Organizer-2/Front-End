@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import axios from 'axios';
-import axiosWithAuth from '../Axios/axiosWithAuth'
 
 // const
 
-const MyCards = (props) =>{
-  console.log('My Cards brought in data', props.location)
+const MyCards = () =>{
   return(
     <>
   <h1>My Cards</h1>
@@ -16,8 +14,8 @@ const MyCards = (props) =>{
         <input
           id="chars"
           text="text"
-          onChange={props.location.handleSearchChange}
-          // value={props.location.query}
+          // onChange={handleSearchChange}
+          // value={query}
           name="chars"
           placeholder="search by name"
         />
@@ -29,29 +27,7 @@ const MyCards = (props) =>{
     flexWrap: 'wrap'
 }}>
 
-
- {console.log("~", props.location.data)}
-<h1 style={{color: 'yellow'}}>{props.location.data ?  console.log(props.location.data.map(item=> item)) : console.log('No')}</h1>
-
-{console.log("~", props.location.data)}
-      {
-      props.location.data.map(item => (
-
-          <div key={item.id} style={{display: 'inline-flex'}}>
-        <div style={{background : 'tomato', margin: '20px', width: '350px', height: '200px'}}>
-            <span style={{cursor: 'pointer'}} onClick={props.handleDelete}> ❌</span>
-                      <img alt={item.person_name} src='https://picsum.photos/200' style={{width: '50px', height: '50px'}}/>
-
-          <h2>{item.person_name}</h2>
-          <p>{item.business_name}</p>
-          <p>{item.email}</p>
-          <p>Cell: {item.phone_number}</p>
-        </div>
-
-            </div>
-        
-      ))}
-
+  <h1>Output My Cards</h1>
       {/* {console.log("~", data)}
       {data.map(item => (
         //   <div style={{display: 'inline-flex'}}>
@@ -83,90 +59,54 @@ const MyCollection = () =>{
 const AllCards =() =>{
 const [data, setData] = useState([]);
 const [query, setQuery] = useState("");
-const [filter, setFilter] = useState([])
 
   const handleSearchChange = e => {
-    console.log(e.target.value)
-    console.log(e.currentTarget)
-    console.log(query)
-    console.log('filter ---->', filter)
-
-    const filterData = data.filter(
-      c =>
-        c.person_name.toLowerCase().includes(e.target.value.toLowerCase())
-)
-console.log('changes on filter data', filterData)
-setFilter(filterData);
-setQuery(e.target.value);
-
-
-
-// if (!e.target.value){
-//   setFilter(data); //set filter to data again. 
-// } 
-// else {
-//   setFilter(filterData);
-// }
-// setFilter(filterData);
+    setQuery(e.target.value);
   };
 
   const handleDelete = e =>{
       console.log('Delete Card')
   }
 
-  const userID = 2
   useEffect(() => {
-    axiosWithAuth()
-      .get(`https://business-card-collector.herokuapp.com/api/users/cards/${userID}/collection`)
+    axios
+      .get(`https://randomuser.me/api/1.0/?results=5&seed=may`)
       .then(res => {
-        // console.log(res, "<---ALL CARDS RES")
-        const profiles = res.data
-        // .filter(
-        //   c =>
-        //     c.person_name.toLowerCase().includes(query.toLowerCase()));
+        const profiles = res.data.results.filter(
+          c =>
+            c.name.first.toLowerCase().includes(query.toLowerCase()) ||
+            c.name.last.toLowerCase().includes(query.toLowerCase())
+        );
+
+        console.log('profiles', profiles);
 
         setData(profiles);
-        // setFilter(profiles);
-        console.log(res.data, "<-res");
+        console.log(res.data.results, "<-res");
       })
       .catch(err => console.log(err));
-  }, []);
-
-  useEffect(()=>{
-
-  }, [filter])
+  }, [query]);
 
   return (
     <div>
-
-      
 <Router>
 <div style={{display:'inline-flex'}}>
-
-<li><Link to={{
-              pathname: "/my-cards",
-              data: filter, 
-              query:query,
-              handleDelete: {handleDelete},
-              handleSearchChange: handleSearchChange
-              }}>
-           <h1>My Cards</h1></Link>
-</li>
+<li><Link to="/my-cards"><h1>My Cards</h1></Link></li>
         <li><Link to='/my-collected-cards'><h1>My Collected Cards</h1></Link></li>
         </div>
 <Switch>
 
-<Route
-        exact
-        path="/my-cards"
-        render={props => <MyCards {...props} />}
-      />
+  <Route path={`/my-cards`}>
+    {/*dynamic path */}
+    <MyCards/>
+  </Route>
   <Route path={`/my-collected-cards`}>
     {/*dynamic path */}
     <MyCollection/>
   </Route>
 </Switch>
 </Router>
+
+<div><h2>Hello there</h2></div>
 
 
       {/* <form>
