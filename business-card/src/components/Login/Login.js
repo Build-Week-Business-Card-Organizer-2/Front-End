@@ -30,6 +30,7 @@ font-size: .65rem;
 const Input = styled.input`
   width: 300px;
   height: 1.5rem;
+  border:none;
   border-bottom:solid grey;
   background-color: #fff;
 `;
