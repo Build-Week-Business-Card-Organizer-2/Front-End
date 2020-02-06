@@ -6,6 +6,8 @@ import Articles from './Articles';
 import QRCard from './QRCard';
 import AllCards from './AllCards';
 import AllUsersCard from './AllUsersCard'
+import {DashboardMain, DashboardProfileSection, DashboardSide, Flex, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from './StyledCss';
+
 
 
 export default function BusinessCard(){
@@ -13,42 +15,25 @@ export default function BusinessCard(){
 
     return(
 
-        // <div style={{height: '100%', overflow: 'hidden', margin: '0px', display: 'flex', boxSizing: 'border-box'}}>
-        // {/* <h1>PrivateRoute</h1> */}
+        <DashboardMain className="main">
         
-        // <div style={{height: '100%', display: 'flex', flexDirection: 'column', flexShrink: '0'}}>
-        // <ProfileCard /> {/*Needs API data */}
-        // <AllCards style={{display: 'inline-flex'}} />
-        // <Notification /> {/*Needs API data */}
-        // </div>
-        // <div style={{height: '100%', display: 'flex', flexDirection: 'column', flexShrink: '0', display: 'inline-flex'}}>
-        // <QRCard />
-        // <Articles />
-        // </div>
-// =========
-
-        <div className="main" style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            flexWrap: 'nowrap',
-            alignContent: 'center'}}>
-        
-        <div className="article" style={{
-            background: 'burlywood',
-            flex: 2,
-            flexShrink: 3.4
+        <DashboardProfileSection className="article" style={{
+            // background: 'burlywood',
+            // flex: 2,
+            // flexShrink: 3.4
         }}>
             <Link to='/allusercards'>All Cards from All Users</Link>
         <ProfileCard /> {/*Needs API data */}
         <AllCards/>
         {/* <Notification /> Needs API data */}
-        </div>
-        <div className="side" style={{background: 'crimson', flex: 1}}>
+        </DashboardProfileSection>
+        <DashboardSide className="side" style={{
+            background: 'crimson', flex: 1
+            }}>
         <QRCard />
         <Articles />
-        </div>
-        </div>
+        </DashboardSide>
+        </DashboardMain>
         
     )
 }

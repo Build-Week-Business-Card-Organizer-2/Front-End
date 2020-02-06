@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import axios from 'axios';
 import axiosWithAuth from '../Axios/axiosWithAuth'
+import {Button, ProfileContainer, ProfileSection, Flex, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+
 
 const Call = (props) => {
     return(<h2>Call this number</h2>)
@@ -44,34 +46,50 @@ const userID = 5
       .catch(err => console.log(err, 'Yo, Try again'));
   }, []);
 
+  console.log(data, '<-data')
   return (
-    <div>
+    <ProfileContainer>
 
 {
 data ? <>
 
 
-<div style={{border : '1px solid red', margin: '50px', /*display: 'flex'*/}}>
+<ProfileSection className="profile" style={{margin: '50px'}}>
                       {/* <img alt={data.user.name} src={`https://picsum.photos/200`} style={{borderRadius: '50%' }}/> */}
 
-                      <div className="image-cropper" style={{
-                         width:' 200px', 
-                         height: '200px', 
+          <Flex className="flexy">
+               <div className="image-cropper" style={{
+                         width:' 150px', 
+                         height: '150px', 
                          position: 'relative',
                          overflow: 'hidden',
                          display: 'inline-block',
-                         borderRadius: '50%'
+                         borderRadius: '50%',
                       }}>
                       <img alt={data.user.name} src={data.user.profile_img_src || `https://picsum.photos/310`} style={{
                         display: 'inline', margin: '-50px', backgroundSize: 'cover', height: '300px',
                         }}/>
                       </div>
 
-          <h2>{data.user.name}</h2>
-          <p>{data.user.job_description}</p> {/*change to Profession */}
-          <h3>Cards</h3>
+              <div className="description">
+  <h2>{data.user.name}</h2>
+  <p>{data.user.job_description}</p> {/*change to Profession */}
+
+              </div>
+
+            <div>
+<h3>Cards</h3>
+<p>{data.collection.length === 0 ? data.collection.length + 1 : data.collection.length}</p>
+
+            </div>
+
+          </Flex>
+          <div className="bio">
+          <h2>Bio</h2>
+          <p>This is the Bio section and it is hard coded. Somehow we have missed this paramater.</p>
+         </div>
           {/* {data.user.id.value || 'something' } change to amount of card from user */}
-        </div>
+        </ProfileSection>
 
 
 
@@ -104,6 +122,6 @@ data ? <>
 </Router>
 </div>
 
-    </div>
+    </ProfileContainer>
   );
 }

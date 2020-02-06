@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import axios from 'axios';
 import axiosWithAuth from '../Axios/axiosWithAuth'
 import CardItems from './CardItems';
+import MyCardCollection from './MyCardCollection'
 
 // We need to continuously re
 
@@ -48,9 +49,7 @@ setRefresh(props.location.data)
   )
 }
 
-const MyCollection = () =>{
-  return(<h1>My Collection</h1>)
-}
+
 
 const AllCards =() =>{
 const [data, setData] = useState([]);
@@ -136,7 +135,7 @@ setFilter(filter)
       />
   <Route path={`/my-collected-cards`}>
     {/*dynamic path */}
-    <MyCollection/>
+    <MyCardCollection/>
   </Route>
 </Switch>
 </Router>
