@@ -157,10 +157,10 @@ nav {
 
 
 export const Button = styled.button`
-  background: #ac8daf;
-  border-radius: 3px;
+background: #1EA7FC;
+border-radius: 3px;
   border: none;
-  color: #F1D4D4;
+  color: color;
   padding: 0.5em 2em;
   margin: 1em;
  
