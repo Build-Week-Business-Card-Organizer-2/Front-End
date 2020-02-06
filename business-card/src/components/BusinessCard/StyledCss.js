@@ -3,16 +3,15 @@ import styled, { css } from 'styled-components';
 
 export const ProfileContainer = styled.div
 `
-border: 1px solid #cacaca;
+border: 1px solid #f3f3f3;
 border-radius: 20px ;
-box-shadow: 0px 5px 3px 0px #cacaca;
-`;
+box-shadow: 0px 5px 5px -4px #cacaca;`;
 
 export const BusinessContainer = styled.div
-`border: 1px solid #cacaca;
+`border: 1px solid #f3f3f3;
 border-radius: 20px ;
-box-shadow: 0px 5px 3px 0px #cacaca;
-`
+box-shadow: 0px 5px 5px -4px #cacaca;`;
+
 
 export const ProfileSection = styled.div
 `padding: 50px,
@@ -75,6 +74,64 @@ flexShrink: 3.4`
 export const DashboardSide = styled.div
 `
 flex: 1
+`
+
+export const Navigation = styled.div
+`
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 16px;
+border-bottom: 3px solid #1EA7FC;
+margin-bottom: 32px;
+flex: 1;
+
+li{
+
+    a {
+        background: blue;
+    }
+}
+
+a.item-sub-nav{
+    background: green;
+    text-decoration: none;
+}
+
+.item-sub-nav{
+    border-bottom: 3px solid #1EA7FC;
+    justify-content: center;
+}
+
+.navbar-list a.chosen,
+.navbar-list a:hover {
+  border-bottom: 1px solid #F14B31;
+}
+
+li .item-sub-nav a {
+    color: #a5a5a5;
+    text-decoration: none;
+    padding: 12px;
+  }
+  
+  .item-sub-nav a.active {
+    color: #1c5d76;
+    font-weigth: bold;
+  }
+  
+  .item-sub-nav a:first-of-type {
+    margin-right: 32px;
+  }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 32px;
+  }
+
 `
 
 
