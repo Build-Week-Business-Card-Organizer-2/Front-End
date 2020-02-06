@@ -58,6 +58,7 @@ border-radius: 50%;`
 export const DashboardMain = styled.div
 `
 margin: 100px;
+margin-top: 50px;
 display: flex;
 flex-direction: row;
 justify-content: center;
