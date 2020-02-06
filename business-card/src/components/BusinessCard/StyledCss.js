@@ -2,17 +2,22 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 export const ProfileContainer = styled.div
-`margin: 50px;
-border: 1px solid;`;
+`
+border: 1px solid #f3f3f3;
+border-radius: 20px ;
+box-shadow: 0px 5px 5px -4px #cacaca;`;
+
+export const BusinessContainer = styled.div
+`border: 1px solid #f3f3f3;
+border-radius: 20px ;
+box-shadow: 0px 5px 5px -4px #cacaca;`;
+
 
 export const ProfileSection = styled.div
 `padding: 50px,
-margin: 50px,
 border: 1px solid red
 
-.profile {
-margin: 50px;
-}
+
 div{
     margin: 50px
 }
@@ -42,14 +47,23 @@ div {
 }
 `;
 
+export const ImageCropper = styled.div
+` width: 150px;
+height: 150px; 
+position: relative;
+overflow: hidden;
+display: inline-block;
+border-radius: 50%;`
+
 export const DashboardMain = styled.div
 `
+margin: 100px;
+margin-top: 50px;
 display: flex;
 flex-direction: row;
 justify-content: center;
 flex-wrap: nowrap;
 align-content: center;
-background-color: green;
 
 `
 
@@ -60,17 +74,93 @@ flexShrink: 3.4`
 
 export const DashboardSide = styled.div
 `
- background: crimson, 
 flex: 1
+`
+
+export const Navigation = styled.div
+`
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0 16px;
+border-bottom: 3px solid #1EA7FC;
+background: #EEEEEE;
+margin-bottom: 32px;
+flex: 1;
+width: 100%;
+
+li{
+    list-style-type: none;
+
+    a {
+        background: blue;
+        text-decoration: none;
+    }
+
+    h1{
+        font-style: normal;
+font-weight: normal;
+line-height: 14px;
+color: black;
+font-size: 20px;
+padding: 0px 72px 0px 72px;
+    }
+}
+
+a.item-sub-nav{
+    background: green;
+    text-decoration: none;
+}
+
+.item-sub-nav{
+    border-bottom: 3px solid #1EA7FC;
+    justify-content: center;
+    margin: 50px 0px 50px 0px;
+    
+    display: inline-flex;
+    margin: 50px 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
+}
+
+.navbar-list a.chosen,
+.navbar-list a:hover {
+  border-bottom: 1px solid #F14B31;
+}
+
+li .item-sub-nav a {
+    color: #a5a5a5;
+    text-decoration: none;
+    padding: 12px;
+  }
+  
+  .item-sub-nav a.active {
+    color: #1c5d76;
+    font-weigth: bold;
+  }
+  
+  .item-sub-nav a:first-of-type {
+    margin-right: 32px;
+  }
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    border-bottom: 1px solid #efefef;
+    margin-bottom: 32px;
+  }
 
 `
 
 
 export const Button = styled.button`
-  background: #ac8daf;
-  border-radius: 3px;
+background: #1EA7FC;
+border-radius: 3px;
   border: none;
-  color: #F1D4D4;
+  color: color;
   padding: 0.5em 2em;
   margin: 1em;
  
@@ -168,6 +258,7 @@ h3{
 
    .bottom-row{
        display: inline-flex;
+       
    }
 
    .services{

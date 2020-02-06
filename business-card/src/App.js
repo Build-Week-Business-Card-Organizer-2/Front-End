@@ -18,6 +18,7 @@ function App() {
               <Link to="/signUp">Sign Up  </Link> 
               <Link to="/allusercards">All User Cards </Link> 
               <Link to="/privateRoute">Private Route </Link>
+              <input className="input navInput"/>
           </div>
           {/* <BusinessCard /> */}
           <Switch>

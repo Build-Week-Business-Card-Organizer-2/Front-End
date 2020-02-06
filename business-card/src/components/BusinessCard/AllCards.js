@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch,Link, NavLink} from 'react-router-dom';
 import axios from 'axios';
 import axiosWithAuth from '../Axios/axiosWithAuth'
 import CardItems from './CardItems';
 import MyCardCollection from './MyCardCollection'
+import {Navigation, ProfileContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+
 
 // We need to continuously re
 
@@ -19,9 +21,9 @@ setRefresh(props.location.data)
     <>
   <h1>My Cards</h1>
 
-  <form>
-        <label>Search...</label>
+  <form >
         <input
+        className="input"
           id="chars"
           text="text"
           onChange={props.location.handleSearchChange}
@@ -113,19 +115,23 @@ setFilter(filter)
 
       
 <Router>
-<div style={{display:'inline-flex'}}>
+<Navigation className="item-sub-nav" style={
+  {display:'inline-flex', margin: '50px 0px 50px 0px',
+  paddingLeft: '0px',
+  paddingRight: '0px',
+  }}>
 
-<li><Link to={{
+<li><NavLink to={{
               pathname: "/my-cards",
               data: filter, 
               query:query,
               handleDelete: {handleDelete},
               handleSearchChange: handleSearchChange
               }}>
-           <h1>My Cards</h1></Link>
+           <h1>My Cards</h1></NavLink>
 </li>
-        <li><Link to='/my-collected-cards'><h1>My Collected Cards</h1></Link></li>
-        </div>
+        <li><NavLink to='/my-collected-cards'><h1>My Collected Cards</h1></NavLink></li>
+        </Navigation>
 <Switch>
 
 <Route
