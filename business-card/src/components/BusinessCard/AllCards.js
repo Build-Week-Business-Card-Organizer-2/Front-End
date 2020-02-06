@@ -115,9 +115,13 @@ setFilter(filter)
 
       
 <Router>
-<Navigation className="item-sub-nav" style={{display:'inline-flex'}}>
+<Navigation className="item-sub-nav" style={
+  {display:'inline-flex', margin: '50px 0px 50px 0px',
+  paddingLeft: '0px',
+  paddingRight: '0px',
+  }}>
 
-<li><NavLink className="item-sub-nav"  activeClassName="chosen" to={{
+<li><NavLink to={{
               pathname: "/my-cards",
               data: filter, 
               query:query,

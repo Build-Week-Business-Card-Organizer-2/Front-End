@@ -83,13 +83,26 @@ justify-content: space-between;
 align-items: center;
 padding: 0 16px;
 border-bottom: 3px solid #1EA7FC;
+background: #EEEEEE;
 margin-bottom: 32px;
 flex: 1;
+width: 100%;
 
 li{
+    list-style-type: none;
 
     a {
         background: blue;
+        text-decoration: none;
+    }
+
+    h1{
+        font-style: normal;
+font-weight: normal;
+line-height: 14px;
+color: black;
+font-size: 20px;
+padding: 0px 72px 0px 72px;
     }
 }
 
@@ -101,6 +114,13 @@ a.item-sub-nav{
 .item-sub-nav{
     border-bottom: 3px solid #1EA7FC;
     justify-content: center;
+    margin: 50px 0px 50px 0px;
+    
+    display: inline-flex;
+    margin: 50px 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: 100%;
 }
 
 .navbar-list a.chosen,
@@ -237,6 +257,7 @@ h3{
 
    .bottom-row{
        display: inline-flex;
+       
    }
 
    .services{
