@@ -5,7 +5,8 @@ const CardItems = (props) =>{
 
     return(
 <div key={props.item.id} style={{display: 'inline-flex'}}>
-        <div style={{background : 'tomato', margin: '20px', width: '350px', height: '200px'}}>
+        <div style={{background : 'tomato center center no-repeat fixed ', backgroundAttachment: 'initial', margin: '20px', width: '350px', height: '190px', backgroundSize: '350px', backgroundImage: `url(' ${props.item.url_string}')`}}>
+           
             <span style={{cursor: 'pointer'}} onClick={props.handleDelete}> ❌</span>
                       <img alt={props.item.person_name} src='https://picsum.photos/200' style={{width: '50px', height: '50px'}}/>
 

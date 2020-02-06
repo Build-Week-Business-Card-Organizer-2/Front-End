@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import axios from 'axios';
 import axiosWithAuth from '../Axios/axiosWithAuth'
-import {Button, ProfileContainer, ProfileSection, Flex, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+import {Button, ProfileContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
 
 
 const Call = (props) => {
@@ -54,33 +54,27 @@ const userID = 5
 data ? <>
 
 
-<ProfileSection className="profile" style={{margin: '50px'}}>
+<ProfileSection className="profile">
                       {/* <img alt={data.user.name} src={`https://picsum.photos/200`} style={{borderRadius: '50%' }}/> */}
 
           <Flex className="flexy">
-               <div className="image-cropper" style={{
-                         width:' 150px', 
-                         height: '150px', 
-                         position: 'relative',
-                         overflow: 'hidden',
-                         display: 'inline-block',
-                         borderRadius: '50%',
-                      }}>
+               <ImageCropper className="image-cropper">
                       <img alt={data.user.name} src={data.user.profile_img_src || `https://picsum.photos/310`} style={{
                         display: 'inline', margin: '-50px', backgroundSize: 'cover', height: '300px',
                         }}/>
-                      </div>
+                      </ImageCropper>
 
               <div className="description">
   <h2>{data.user.name}</h2>
   <p>{data.user.job_description}</p> {/*change to Profession */}
 
               </div>
+              
 
             <div>
 <h3>Cards</h3>
 <p>{data.collection.length === 0 ? data.collection.length + 1 : data.collection.length}</p>
-
+<div><Button>Edit</Button></div>
             </div>
 
           </Flex>
