@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 import axios from 'axios';
 import axiosWithAuth from '../Axios/axiosWithAuth'
-import {Button, ProfileSection, Flex, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+import {Button, ProfileContainer, ProfileSection, Flex, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
 
 
 const Call = (props) => {
@@ -48,7 +48,7 @@ const userID = 5
 
   console.log(data, '<-data')
   return (
-    <div>
+    <ProfileContainer>
 
 {
 data ? <>
@@ -122,6 +122,6 @@ data ? <>
 </Router>
 </div>
 
-    </div>
+    </ProfileContainer>
   );
 }

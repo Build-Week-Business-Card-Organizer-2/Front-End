@@ -1,6 +1,9 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 
+export const ProfileContainer = styled.div
+`margin: 50px;
+border: 1px solid;`;
 
 export const ProfileSection = styled.div
 `padding: 50px,
@@ -38,6 +41,29 @@ div {
     text-align: left;
 }
 `;
+
+export const DashboardMain = styled.div
+`
+display: flex;
+flex-direction: row;
+justify-content: center;
+flex-wrap: nowrap;
+align-content: center;
+background-color: green;
+
+`
+
+export const DashboardProfileSection = styled.div
+`
+flex: 2,
+flexShrink: 3.4`
+
+export const DashboardSide = styled.div
+`
+ background: crimson, 
+flex: 1
+
+`
 
 
 export const Button = styled.button`
