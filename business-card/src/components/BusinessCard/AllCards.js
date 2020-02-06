@@ -21,9 +21,9 @@ setRefresh(props.location.data)
     <>
   <h1>My Cards</h1>
 
-  <form>
-        <label>Search...</label>
+  <form >
         <input
+        className="input"
           id="chars"
           text="text"
           onChange={props.location.handleSearchChange}
