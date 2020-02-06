@@ -2,17 +2,23 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 
 export const ProfileContainer = styled.div
-`margin: 50px;
-border: 1px solid;`;
+`
+border: 1px solid #cacaca;
+border-radius: 20px ;
+box-shadow: 0px 5px 3px 0px #cacaca;
+`;
+
+export const BusinessContainer = styled.div
+`border: 1px solid #cacaca;
+border-radius: 20px ;
+box-shadow: 0px 5px 3px 0px #cacaca;
+`
 
 export const ProfileSection = styled.div
 `padding: 50px,
-margin: 50px,
 border: 1px solid red
 
-.profile {
-margin: 50px;
-}
+
 div{
     margin: 50px
 }
@@ -42,14 +48,22 @@ div {
 }
 `;
 
+export const ImageCropper = styled.div
+` width: 150px;
+height: 150px; 
+position: relative;
+overflow: hidden;
+display: inline-block;
+border-radius: 50%;`
+
 export const DashboardMain = styled.div
 `
+margin: 100px;
 display: flex;
 flex-direction: row;
 justify-content: center;
 flex-wrap: nowrap;
 align-content: center;
-background-color: green;
 
 `
 
@@ -60,9 +74,7 @@ flexShrink: 3.4`
 
 export const DashboardSide = styled.div
 `
- background: crimson, 
 flex: 1
-
 `
 
 

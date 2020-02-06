@@ -17,19 +17,12 @@ export default function BusinessCard(){
 
         <DashboardMain className="main">
         
-        <DashboardProfileSection className="article" style={{
-            // background: 'burlywood',
-            // flex: 2,
-            // flexShrink: 3.4
-        }}>
-            <Link to='/allusercards'>All Cards from All Users</Link>
+        <DashboardProfileSection className="article">
         <ProfileCard /> {/*Needs API data */}
         <AllCards/>
         {/* <Notification /> Needs API data */}
         </DashboardProfileSection>
-        <DashboardSide className="side" style={{
-            background: 'crimson', flex: 1
-            }}>
+        <DashboardSide>
         <QRCard />
         <Articles />
         </DashboardSide>
