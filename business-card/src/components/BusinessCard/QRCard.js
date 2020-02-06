@@ -2,6 +2,8 @@ import React from 'react';
 import ProfileCard from './ProfileCard';
 import Notification from './Notification';
 import Articles from './Articles';
+import styled, { css } from 'styled-components';
+import {Button, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
 
 
 export default function QRCard(){
@@ -21,7 +23,7 @@ export default function QRCard(){
     <input type="checkbox"/><label>Private</label>
 
 
-        <button>Share</button>
+        <Button>Share</Button>
 </form>
         
         </div>
