@@ -108,7 +108,7 @@ export default function BusinessCard(props){
 
             </DashboardProfileSection>
 
-            <DashboardSide style={{background: 'yellow'}}>
+            <DashboardSide>
             <QRCard/>
             <div className="QRcode">
                     <h3>Enter QR code URL<span> (Make sure URL encoded) </span></h3>
@@ -117,10 +117,7 @@ export default function BusinessCard(props){
                     <button onClick={handleSubmit}>Submit</button>
             </div>
             
-            </DashboardSide>
-
-        {/* </BusinessContainer> */}
-        
+            </DashboardSide>       
         </DashboardMain>
     
     )

@@ -69,12 +69,12 @@ align-content: center;
 
 export const DashboardProfileSection = styled.div
 `
-flex: 2,
-flexShrink: 3.4`
+flex: 2;
+flexShrink: 3.4;`
 
 export const DashboardSide = styled.div
 `
-flex: 1
+
 `
 
 export const Navigation = styled.div
