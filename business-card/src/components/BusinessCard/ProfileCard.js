@@ -56,7 +56,7 @@ data ? <>
 
 <ProfileSection className="profile">
                       {/* <img alt={data.user.name} src={`https://picsum.photos/200`} style={{borderRadius: '50%' }}/> */}
-
+{`${data}`}
           <Flex className="flexy">
                <ImageCropper className="image-cropper">
                       <img alt={data.user.name} src={data.user.profile_img_src || `https://picsum.photos/310`} style={{
