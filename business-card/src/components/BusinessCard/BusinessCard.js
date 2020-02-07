@@ -29,29 +29,29 @@ export default function BusinessCard(props){
     const deleteFromCollection=(item)=>{
         
     }
-    // useEffect(() => {
-    //     axiosWithAuth().get('/api/users/cards')
-    //     .then(response=>{
-    //         setCards(response.data);
-    //         setProfile({
-    //             ...profile,
-    //             name:localStorage.getItem('name'),
-    //             email:localStorage.getItem('email'),
-    //             job_description:localStorage.getItem('job_description'),
-    //             phone_number:localStorage.getItem('phone_number'),
-    //             profile_img_src:localStorage.getItem('profile_img_src')
-    //         })
-    //     })
-    //     .catch(error=>{
-    //         console.log(error)
-    //     })
-    //     axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection/`)
-    //     .then(res=>{
-    //         console.log(res);
-    //         setCollection([...collection,...res.data])
-    //     })
+    useEffect(() => {
+        axiosWithAuth().get('/api/users/cards')
+        .then(response=>{
+            setCards(response.data);
+            setProfile({
+                ...profile,
+                name:localStorage.getItem('name'),
+                email:localStorage.getItem('email'),
+                job_description:localStorage.getItem('job_description'),
+                phone_number:localStorage.getItem('phone_number'),
+                profile_img_src:localStorage.getItem('profile_img_src')
+            })
+        })
+        .catch(error=>{
+            console.log(error)
+        })
+        axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection/`)
+        .then(res=>{
+            console.log(res);
+            setCollection([...collection,...res.data])
+        })
 
-    // },[collection, profile]);
+    },[collection, profile]);
 
     const handleChange=(e)=>{
         setQR(e.target.value);
