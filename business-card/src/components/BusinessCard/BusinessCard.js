@@ -8,8 +8,8 @@ import {Context} from '../Context/Context';
 import axios from 'axios';
 import QRCard from '../NEEDWORK(BUSINESSCARD)/QRCard'
 import Articles from '../NEEDWORK(BUSINESSCARD)/Articles'
-
-export default function BusinessCard(){
+import './BusinessCardStyles/styles.css'
+export default function BusinessCard(props){
     const [profile,setProfile]=useState({
         name:'',
         job_description:'',
@@ -24,7 +24,9 @@ export default function BusinessCard(){
     const addToCollection=(item)=>{
         setCollection([...collection,item]);
     }
-
+    const deleteFromCollection=(item)=>{
+        
+    }
     useEffect(() => {
         axiosWithAuth().get('/api/users/cards')
         .then(response=>{
@@ -41,18 +43,11 @@ export default function BusinessCard(){
         .catch(error=>{
             console.log(error)
         })
-        axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection`)
-        .then(res=>{;
+        axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection/`)
+        .then(res=>{
+            console.log(res);
             setCollection([...collection,...res.data])
         })
-
-
-        axios.get(`http://api.qrserver.com/v1/read-qr-code/?fileurl=https://www.barcodefaq.com/wp-content/uploads/2018/08/gs1-qrcode-fnc1.png`)
-        .then(response=>{
-            console.log(response.data);
-        })
-
-
 
     },[]);
 
@@ -69,12 +64,14 @@ export default function BusinessCard(){
     return(
         <div>
             <div className="profile">
-                <h1>Welcome {profile.name}</h1>
-                <h3>{profile.job_description}</h3>
-                <h3>{profile.email}</h3>
-                <h3>{profile.phone_number}</h3>
                 <div className="profile_img">
                   <img src={profile.profile_img_src}/>
+                </div>
+                <div className="profile_details">
+                    <h1>Welcome {profile.name}</h1>
+                    <h3>{profile.job_description}</h3>
+                    <h3>{profile.email}</h3>
+                    <h3>{profile.phone_number}</h3>
                 </div>
             </div>
             <div className="QRcode">
@@ -84,7 +81,6 @@ export default function BusinessCard(){
                     <button onClick={handleSubmit}>Submit</button>
             </div>
         <Router>
-            <Articles/>
             <QRCard/>
             <div className="collections">
                 <Link to="/profile/mycards">My Collections</Link>
@@ -92,7 +88,7 @@ export default function BusinessCard(){
                 <Link to="/profile/createcards">Create a Card</Link>
             </div>
             <Switch>
-                <Context.Provider value={{cards,addToCollection,collection,setCards}}>
+                <Context.Provider value={{cards,addToCollection,collection,setCards,deleteFromCollection}}>
                     <Route path="/profile/mycards">
                         <MyCardsList/>
                     </Route>

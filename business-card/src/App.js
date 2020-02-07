@@ -18,7 +18,6 @@ function App() {
               <Link to="/signUp">Sign Up  </Link> 
               <Link to="/allusercards">All User Cards </Link> 
               <Link to="/profile">Profile</Link>
-              <input className="input navInput"/>
           </div>
           {/* <BusinessCard /> */}
           <Switch>

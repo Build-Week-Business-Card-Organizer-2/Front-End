@@ -12,8 +12,6 @@ export default function CreateCards(props){
         email:'',
         phone_number:''
     })
-    const [QR,setQR]=useState('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example');
-
     const cards=useContext(Context).cards;
     const setCards=useContext(Context).setCards;
     const handleChange=(e)=>{
@@ -48,7 +46,6 @@ export default function CreateCards(props){
                 phone_number:e.target.value
             })
         }
-        setQR(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data= name : ${form.person_name} | business name : ${form.business_name} | Type Of Business : ${form.category} | Card URL : ${form.url_string} | Email : ${form.email} | Phone Number: ${form.phone_number}`)
     }
     const handleSubmit=(e)=>{
         e.preventDefault()
@@ -64,9 +61,6 @@ export default function CreateCards(props){
     }
     return (
         <div className="createCard">
-            <div>
-                <img src={QR}/>
-            </div>
             <form>
                 <h1>Create a Business Card</h1>
                 <label htmlFor="person_name">Your Name:</label>
