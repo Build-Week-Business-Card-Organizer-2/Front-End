@@ -77,6 +77,7 @@ export default function BusinessCard(props){
                     <h1>Welcome {profile.name || 'Ebi'}</h1>
                     <h3>{profile.job_description || 'Student'}</h3>
                 </div>
+
                 </Flex>
                 <div className="bio">
                 <h3>{profile.email || 'ebi@aol.com'}</h3>

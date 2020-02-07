@@ -4,6 +4,7 @@ import {BusinessContainer, Button, QRContainer, QRForm} from "../BusinessCard/St
 
 export default function QRCard(){
     const [QR,setQR]=useState('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example');
+    const [text,setText]=useState('');
     const [form,setForm]=useState({
         person_name:'',
         business_name:'',
@@ -48,6 +49,15 @@ export default function QRCard(){
         }
         setQR(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data= name : ${form.person_name} | business name : ${form.business_name} | Type Of Business : ${form.category} | Card URL : ${form.url_string} | Email : ${form.email} | Phone Number: ${form.phone_number}`)
     }
+    function myFunction(e) {
+        e.preventDefault();
+        var copyText = document.getElementById("myInput");
+        copyText.select();
+        copyText.setSelectionRange(0, 99999)
+        document.execCommand("copy");
+        setText('Link Coppied');
+        setQR('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example')
+      }
     return(
         <BusinessContainer style={{
             padding: '30px', margin: '30px' 
@@ -71,8 +81,9 @@ export default function QRCard(){
 
                 <input onChange={handleChange}  type="text" id="phone_number" name="phone_number" placeholder="Phone Number"/>
 
-                    <Button>Share</Button>
-                    
+                <label htmlFor="myInput">QR Link</label>
+                <input type="text" id="myInput" value={QR}/>
+                <Button onClick={myFunction}>Copy Link</Button><span>{text}</span>
         </QRForm>
         
         </BusinessContainer>
