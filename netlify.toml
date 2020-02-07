@@ -1,6 +1,6 @@
 [build]
 base = "business-card/"
-publish = "/build/
+publish = "/build/"
 command = "yarn build"
 [[redirects]] 
 from = "/*"
