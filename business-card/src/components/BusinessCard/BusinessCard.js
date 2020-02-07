@@ -75,6 +75,7 @@ export default function BusinessCard(props){
                 </div>
             </div>
             <div className="QRcode">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"/>
                     <h3>Enter QR code URL<span> (Make sure URL encoded) </span></h3>
                     <input onChange={handleChange}/>
                     <div>{value}</div>
