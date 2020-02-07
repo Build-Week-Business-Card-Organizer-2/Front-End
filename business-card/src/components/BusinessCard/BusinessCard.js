@@ -9,7 +9,7 @@ import axios from 'axios';
 import QRCard from '../NEEDWORK(BUSINESSCARD)/QRCard'
 import Articles from '../NEEDWORK(BUSINESSCARD)/Articles'
 import './BusinessCardStyles/styles.css';
-import {DashboardSide, LayoutPosition, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+import {DashboardSide, LayoutPosition,Navigation, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
 
 export default function BusinessCard(props){
     const [profile,setProfile]=useState({
@@ -90,9 +90,15 @@ export default function BusinessCard(props){
             <Router>
             
             <div className="collections">
+            <Navigation className="item-sub-nav" style={
+  {display:'inline-flex', margin: '50px 0px 50px 0px',
+  paddingLeft: '0px',
+  paddingRight: '0px',
+  }}>
                 <Link to="/profile/mycards">My Collections</Link>
                 <Link to="/profile/findcards">Find a Business Cards</Link>
                 <Link to="/profile/createcards">Create a Card</Link>
+                </Navigation>
             </div>
             <Switch>
                 <Context.Provider value={{cards,addToCollection,collection,setCards,deleteFromCollection}}>
