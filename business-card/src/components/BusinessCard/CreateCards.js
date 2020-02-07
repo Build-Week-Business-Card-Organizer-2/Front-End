@@ -83,7 +83,7 @@ export default function CreateCards(props){
         
                 <input onChange={handleChange} type="text" id="phone_number" name="phone_number" placeholder="Phone Number"/>
 
-                <button onClick={handleSubmit}>Submit</button>
+                <Button onClick={handleSubmit}>Submit</Button>
 
             </CreateCardForm>
         </div>
