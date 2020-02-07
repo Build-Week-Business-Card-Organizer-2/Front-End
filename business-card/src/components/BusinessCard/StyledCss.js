@@ -246,6 +246,10 @@ font-size: 14px;
 line-height: 20px;
   color: rgba(0, 0, 0, 0.6);
 }
+
+.delete{
+  background: #fb7171;
+}
 `
 
 
