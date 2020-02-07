@@ -47,6 +47,15 @@ div {
 }
 `;
 
+export const CroppedImg = styled.div
+`
+img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}`;
+
 export const ImageCropper = styled.div
 ` width: 150px;
 height: 150px; 

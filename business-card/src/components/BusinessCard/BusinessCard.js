@@ -9,7 +9,7 @@ import axios from 'axios';
 import QRCard from '../NEEDWORK(BUSINESSCARD)/QRCard'
 import Articles from '../NEEDWORK(BUSINESSCARD)/Articles'
 import './BusinessCardStyles/styles.css';
-import {DashboardSide, LayoutPosition,Navigation, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+import {DashboardSide, CroppedImg, Navigation, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex} from "./StyledCss";
 
 export default function BusinessCard(props){
     const [profile,setProfile]=useState({
@@ -70,9 +70,9 @@ export default function BusinessCard(props){
 <ProfileContainer>
             <ProfileSection className="profile">
                 <Flex>
-                <ImageCropper className="profile_img">
-                  <img alt={`${profile.name}`} src={`${profile.profile_img_src }`|| `https://picsum.photos/200`} />
-                </ImageCropper>
+               <CroppedImg>
+                <img alt={`${profile.name}`} className="myimg" src={`${profile.profile_img_src }`|| `https://picsum.photos/200`} />
+                </CroppedImg>
                 <div className="profile_details">
                     <h1>Welcome {profile.name || 'Ebi'}</h1>
                     <h3>{profile.job_description || 'Student'}</h3>
