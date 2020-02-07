@@ -36,10 +36,10 @@ const [query, setQuery] = useState("");
 
   return (
     <div> 
-        <h2>Hi Crazy World</h2>
+        <h2>Search all cards</h2>
       <form>
-        <label>Search...</label>
         <input
+         className="input navInput"
           id="chars"
           text="text"
           onChange={handleSearchChange}
