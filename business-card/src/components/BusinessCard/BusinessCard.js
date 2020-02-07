@@ -8,7 +8,9 @@ import {Context} from '../Context/Context';
 import axios from 'axios';
 import QRCard from '../NEEDWORK(BUSINESSCARD)/QRCard'
 import Articles from '../NEEDWORK(BUSINESSCARD)/Articles'
-import './BusinessCardStyles/styles.css'
+import './BusinessCardStyles/styles.css';
+import {DashboardSide, LayoutPosition, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+
 export default function BusinessCard(props){
     const [profile,setProfile]=useState({
         name:'',
@@ -27,29 +29,29 @@ export default function BusinessCard(props){
     const deleteFromCollection=(item)=>{
         
     }
-    useEffect(() => {
-        axiosWithAuth().get('/api/users/cards')
-        .then(response=>{
-            setCards(response.data);
-            setProfile({
-                ...profile,
-                name:localStorage.getItem('name'),
-                email:localStorage.getItem('email'),
-                job_description:localStorage.getItem('job_description'),
-                phone_number:localStorage.getItem('phone_number'),
-                profile_img_src:localStorage.getItem('profile_img_src')
-            })
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-        axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection/`)
-        .then(res=>{
-            console.log(res);
-            setCollection([...collection,...res.data])
-        })
+    // useEffect(() => {
+    //     axiosWithAuth().get('/api/users/cards')
+    //     .then(response=>{
+    //         setCards(response.data);
+    //         setProfile({
+    //             ...profile,
+    //             name:localStorage.getItem('name'),
+    //             email:localStorage.getItem('email'),
+    //             job_description:localStorage.getItem('job_description'),
+    //             phone_number:localStorage.getItem('phone_number'),
+    //             profile_img_src:localStorage.getItem('profile_img_src')
+    //         })
+    //     })
+    //     .catch(error=>{
+    //         console.log(error)
+    //     })
+    //     axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection/`)
+    //     .then(res=>{
+    //         console.log(res);
+    //         setCollection([...collection,...res.data])
+    //     })
 
-    },[collection, profile]);
+    // },[collection, profile]);
 
     const handleChange=(e)=>{
         setQR(e.target.value);
@@ -62,28 +64,31 @@ export default function BusinessCard(props){
         })
     }
     return(
-        <div>
-           <h1>
-           {profile ? 'Yes, its rendering' : 'Not rendering'}</h1> 
-            <div className="profile">
-                <div className="profile_img">
-                  <img alt={`${profile.name}`} src={profile.profile_img_src}/>
-                </div>
+        <DashboardMain className="main">
+        <DashboardProfileSection className="article">
+        {/* <BusinessContainer className="sneak-peek" > */}
+
+<ProfileContainer>
+            <ProfileSection className="profile">
+                <Flex>
+                <ImageCropper className="profile_img">
+                  <img alt={`${profile.name}`} src={`${profile.profile_img_src }`|| `https://picsum.photos/200`} />
+                </ImageCropper>
                 <div className="profile_details">
-                    <h1>Welcome {profile.name}</h1>
-                    <h3>{profile.job_description}</h3>
-                    <h3>{profile.email}</h3>
-                    <h3>{profile.phone_number}</h3>
+                    <h1>Welcome {profile.name || 'Ebi'}</h1>
+                    <h3>{profile.job_description || 'Student'}</h3>
                 </div>
-            </div>
-            <div className="QRcode">
-                    <h3>Enter QR code URL<span> (Make sure URL encoded) </span></h3>
-                    <input onChange={handleChange}/>
-                    <div>{value}</div>
-                    <button onClick={handleSubmit}>Submit</button>
-            </div>
-        <Router>
-            <QRCard/>
+                </Flex>
+                <div className="bio">
+                <h3>{profile.email || 'ebi@aol.com'}</h3>
+                    <h3>{profile.phone_number || '3174444444'}</h3>
+                </div>
+            </ProfileSection>
+            </ProfileContainer>
+
+{/*Possibility of Adding ProfileContainer */}
+            <Router>
+            
             <div className="collections">
                 <Link to="/profile/mycards">My Collections</Link>
                 <Link to="/profile/findcards">Find a Business Cards</Link>
@@ -99,7 +104,24 @@ export default function BusinessCard(props){
                 </Context.Provider>
             </Switch> 
         </Router>
+  
+
+            </DashboardProfileSection>
+
+            <DashboardSide style={{background: 'yellow'}}>
+            <QRCard/>
+            <div className="QRcode">
+                    <h3>Enter QR code URL<span> (Make sure URL encoded) </span></h3>
+                    <input onChange={handleChange}/>
+                    <div>{value}</div>
+                    <button onClick={handleSubmit}>Submit</button>
+            </div>
+            
+            </DashboardSide>
+
+        {/* </BusinessContainer> */}
         
-        </div>
+        </DashboardMain>
+    
     )
 }
