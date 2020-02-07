@@ -34,7 +34,7 @@ const Input = styled.input`
   border-bottom:solid grey;
   background-color: #fff;
 `;
-const Login = () => (
+const Login = (props) => (
 
 
   <Formik
@@ -46,6 +46,14 @@ const Login = () => (
         .then(response=>{
             console.log(response);
             localStorage.setItem('token',response.data.token);
+            localStorage.setItem('userID',response.data.user.id)
+            localStorage.setItem('name',response.data.user.name)
+            localStorage.setItem('job_description',response.data.user.job_description)
+            localStorage.setItem('email',response.data.user.email)
+            localStorage.setItem('phone_number',response.data.user.phone_number)
+            localStorage.setItem('profile_img_src',response.data.user.profile_img_src)
+            localStorage.setItem('token',response.data.token);
+            props.history.push("/profile/mycards");
         })
         axios.get("https://business-card-collector.herokuapp.com/api/users")
         .then(res=>{
@@ -61,7 +69,7 @@ const Login = () => (
       const {values, touched, errors, isSubmitting, handleChange, handleBlur, handleSubmit} = props;
       return (
         <Container>
-          <h1>Sign in</h1>
+          <h1>Log In</h1>
           <br></br>
         <form className="signUpForm" onSubmit={handleSubmit}>
           <label htmlFor="username">Username</label> <br></br>
@@ -74,7 +82,7 @@ const Login = () => (
           {errors.password && touched.password && (<div className="input-feedback">{errors.password}</div>)}
           <br></br>
           <Button type="submit" disabled={isSubmitting}>
-            Sign In
+            Log In
           </Button>
           
         </form>
