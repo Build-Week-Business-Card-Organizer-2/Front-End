@@ -30,10 +30,10 @@ const Item=({props})=>{
     }
     return(
         <CardsListContainer className="cards">
-            <h1>Personal Name: {props.person_name}</h1>
-            <h3>Business Name: {props.business_name}</h3>
-            <h3>Email: {props.email}</h3>
-            <h3>Phone Number: {props.phone_number}</h3>
+            <h1>{props.person_name}</h1>
+            <h3>{props.business_name}</h3>
+            <h3>{props.email}</h3>
+            <h3>{props.phone_number}</h3>
             <img src={props.url_string}/>
             <Button onClick={handleChange}>Collect</Button>
         </CardsListContainer>

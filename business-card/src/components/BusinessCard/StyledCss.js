@@ -223,30 +223,28 @@ input {
 
 export const CardsListContainer = styled.button
 `
-@import url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap');
-@fontface {
-  font-family: 'Bungee Inline', cursive;
-  src: url('https://fonts.googleapis.com/css?family=Bungee+Inline')
-}
-@fontface {
-  font-family: 'Ubuntu', sans-serif;
-  src: url('https://fonts.googleapis.com/css?family=Ubuntu&display=swap')
-}
-
 
 width: 290px;
 background: #FAFAFA;
-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2), 0px 3px 4px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.14);
+box-shadow: 0px 5px 5px -4px #cacaca;
+border: 1px solid #f3f3f3;
+border-radius: 20px;
 
 h1{
-  color: red;
-  font-family: Permanent Marker;
-  font-style: normal;
+font-family: 'Ubuntu', sans-serif;
+font-style: normal;
 font-weight: normal;
 font-size: 24px;
 line-height: 28px;
+}
+
+h3{
+  font-family: Ubuntu;
+font-style: normal;
+font-weight: normal;
+font-size: 14px;
+line-height: 20px;
+  color: rgba(0, 0, 0, 0.6);
 }
 `
 
