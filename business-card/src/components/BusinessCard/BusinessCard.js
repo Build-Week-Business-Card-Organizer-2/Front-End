@@ -51,7 +51,7 @@ export default function BusinessCard(props){
             setCollection([...collection,...res.data])
         })
 
-    },[collection, profile]);
+    },[]);
 
     const handleChange=(e)=>{
         setQR(e.target.value);
