@@ -1,6 +1,6 @@
 import React, { useState,useEffect,useContext, Profiler } from 'react';
 import axiosWithAuth from '../Axios/axiosWithAuth'
-import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch,Link, NavLink} from 'react-router-dom';
 import MyCardsList from './MyCardsList';
 import CardsList from './CardsList';
 import CreateCards from './CreateCards'
@@ -66,7 +66,6 @@ export default function BusinessCard(props){
     return(
         <DashboardMain className="main">
         <DashboardProfileSection className="article">
-        {/* <BusinessContainer className="sneak-peek" > */}
 
 <ProfileContainer>
             <ProfileSection className="profile">
@@ -95,9 +94,9 @@ export default function BusinessCard(props){
   paddingLeft: '0px',
   paddingRight: '0px',
   }}>
-                <Link to="/profile/mycards">My Collections</Link>
-                <Link to="/profile/findcards">Find a Business Cards</Link>
-                <Link to="/profile/createcards">Create a Card</Link>
+                <NavLink to="/profile/mycards">My Collections</NavLink>
+                <NavLink to="/profile/findcards">Find a Business Cards</NavLink>
+                <NavLink to="/profile/createcards">Create a Card</NavLink>
                 </Navigation>
             </div>
             <Switch>

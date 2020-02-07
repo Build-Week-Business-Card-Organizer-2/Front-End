@@ -89,6 +89,21 @@ margin-bottom: 32px;
 flex: 1;
 width: 100%;
 
+a {
+    text-decoration: none;
+    font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 16px;
+/* identical to box height */
+
+
+/* Text Color/Bright Gray */
+
+color: #343C47;
+}
+
+
 li{
     list-style-type: none;
 
@@ -152,6 +167,32 @@ nav {
     border-bottom: 1px solid #efefef;
     margin-bottom: 32px;
   }
+
+`
+
+export const QRContainer = styled.div
+`
+background: #1EA7FC;
+ width: 300px;
+   width:20em;
+    border-radius: 10px;
+     margin: 10px; 
+
+`
+
+export const QRForm = styled.form
+`
+input {
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+    width: 250px;
+  }
+  input:focus {
+    border-color: #1EA7FC
+    border-width: 0 0 3px;
+  }
+
 
 `
 
