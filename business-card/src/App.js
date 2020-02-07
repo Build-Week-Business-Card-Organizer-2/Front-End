@@ -4,7 +4,7 @@ import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import BusinessCard from './components/BusinessCard/BusinessCard'
-import AllUsersCards from './components/BusinessCard/AllUsersCard'
+import AllUsersCards from './components/NEEDWORK(BUSINESSCARD)/AllUsersCard'
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 function App() {
 
@@ -17,7 +17,7 @@ function App() {
               <Link to="/login">Login </Link> 
               <Link to="/signUp">Sign Up  </Link> 
               <Link to="/allusercards">All User Cards </Link> 
-              <Link to="/privateRoute">Private Route </Link>
+              <Link to="/profile">Profile</Link>
               <input className="input navInput"/>
           </div>
           {/* <BusinessCard /> */}
@@ -29,10 +29,9 @@ function App() {
           </Route>
           <Route path="/login" component={Login}/>
           <Route path="/signUp" component={SignUp}/>
-          <PrivateRoute path="/PrivateRoute" component={BusinessCard}/>
+          <PrivateRoute path="/profile" component={BusinessCard}/>
          <Route path="/login" component={Login}/>
                   <Route exact path="/allusercards" component={AllUsersCards}/>
-
         </Switch>
          {/* <Route exact path="/allusercards" component={AllUsersCards}/> */}
       </Router>

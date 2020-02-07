@@ -34,16 +34,20 @@ const Input = styled.input`
   border-bottom:solid grey;
   background-color: #fff;
 `;
-const SignUp = () => (
+const SignUp = (props) => (
   <Formik
-    initialValues={{name: "", email: "", description: "", phone: "", username: "", password: ""}}
+    initialValues={{username:"", password:"", name:"", job_description:"", email:"",  phone_number:"", profile_img_src:""}}
     onSubmit={(values, { setSubmitting }) => {
       setTimeout(() => {
-        console.log("Logging in", values);
-        axiosWithAuth().post("api/users/login", values)
+        console.log("Signing in", values);
+        axiosWithAuth().post('api/users/register', values).then(response=>{
+          props.history.push("/login")
+        })
         .then(response=>{
             console.log(response);
-            localStorage.setItem('token',response.data.token);
+        })
+        .catch(error=>{
+            console.log(error);
         })
         axios.get("https://business-card-collector.herokuapp.com/api/users")
         .then(res=>{
@@ -74,15 +78,23 @@ const SignUp = () => (
           <P>Ex: name@gmail.com</P>
           <br></br>
 
-          <label htmlFor="description">Job Description</label> <br></br>
-          <Input name="description" type="text" value={values.description} onChange={handleChange} onBlur={handleBlur} className={errors.description && touched.description && "error"}/>
-          {errors.description && touched.description && ( <div className="input-feedback">{errors.description}</div>)}
+          <label htmlFor="job_description">Job Description</label> <br></br>
+          <Input name="job_description" type="text" value={values.job_description} onChange={handleChange} onBlur={handleBlur} className={errors.job_description && touched.job_description && "error"}/>
+          {errors.job_description && touched.job_description && ( <div className="input-feedback">{errors.job_description}</div>)}
           <P>Job Title</P>
           <br></br>
 
-          <label htmlFor="phone">Phone Number</label> <br></br>
-          <Input name="phone" type="number" value={values.phone} onChange={handleChange} onBlur={handleBlur} className={errors.phone && touched.phone && "error"}/>
-          {errors.phone && touched.phone && ( <div className="input-feedback">{errors.phone}</div>)}
+
+          <label htmlFor="profile_url">Profile Image URL</label> <br></br>
+          <Input name="profile_img_src" type="text" value={values.profile_img_src} onChange={handleChange} onBlur={handleBlur} className={errors.profile_img_src && touched.profile_img_src && "error"}/>
+          {errors.profile_img_src && touched.profile_img_src && (<div className="input-feedback">{errors.profile_img_src}</div>)}
+          <P>First & Last</P>
+          <br></br>
+
+
+          <label htmlFor="phone_number">Phone Number</label> <br></br>
+          <Input name="phone_number" type="number" value={values.phone_number} onChange={handleChange} onBlur={handleBlur} className={errors.phone_number && touched.phone_number && "error"}/>
+          {errors.phone && touched.phone && ( <div className="input-feedback">{errors.phone_number}</div>)}
           <br></br>
 
           <label htmlFor="username">Username</label> <br></br>

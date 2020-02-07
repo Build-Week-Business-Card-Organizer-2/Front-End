@@ -23,7 +23,7 @@ const [data, setData] = useState();
   //   setQuery(e.target.value);
   // };
 
-const userID = 5
+const userID = 1;
 
   useEffect(() => {
     // axiosWithAuth()
@@ -58,11 +58,11 @@ data ? <>
                       {/* <img alt={data.user.name} src={`https://picsum.photos/200`} style={{borderRadius: '50%' }}/> */}
 
           <Flex className="flexy">
-               <ImageCropper className="image-cropper">
+               {/* <ImageCropper className="image-cropper">
                       <img alt={data.user.name} src={data.user.profile_img_src || `https://picsum.photos/310`} style={{
                         display: 'inline', margin: '-50px', backgroundSize: 'cover', height: '300px',
                         }}/>
-                      </ImageCropper>
+                      </ImageCropper> */}
 
               <div className="description">
   <h2>{data.user.name}</h2>
@@ -95,9 +95,9 @@ data ? <>
 <div style={{border : '1px solid red', display: 'inline-flex'}}>
 <Router>
 
-<li><Link to="/my-phone">Phone</Link></li>
+        {/* <li><Link to="/my-phone">Phone</Link></li>
         <li><Link to='/my-email'>Email</Link></li>
-        <li><Link to='/my-site'>Globe</Link></li>
+        <li><Link to='/my-site'>Globe</Link></li> */}
 <Switch>
 
   <Route path={`/my-phone`}>
