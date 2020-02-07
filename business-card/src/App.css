@@ -9,7 +9,7 @@
 
 .navInput
 {
-  position: absolute;
+  /* position: absolute; */
 }
 .input
 {
@@ -79,7 +79,7 @@ border-radius: 3px;
   text-align: left;
 }
 body{
-  background-color:rgb(226, 226, 255);
+  /* background-color:rgb(226, 226, 255); */
 }
 /* #myInput{
   display:none;

@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {BusinessContainer, Button} from "./StyledCss";
+import {BusinessContainer, Button, QRContainer, QRForm} from "../BusinessCard/StyledCss";
 
 
 export default function QRCard(){
@@ -62,35 +62,29 @@ export default function QRCard(){
         <BusinessContainer style={{
             padding: '30px', margin: '30px' 
             }}>
-        <div style ={{background: 'rosybrown', width: '300px', height: '30vh', width:'20em', borderRadius: '10px', margin: '10px' }}>
+        <QRContainer>
             <div className="QR">
                 <img src={QR}/>
             </div>   
-            <h1>QR Card</h1>
-        </div>
-        <form className="QRform">
-                <label htmlFor="person_name">Your Name:</label>
-                <input onChange={handleChange} type="text" id="person_name" name="person_name"/>
+        </QRContainer>
+        <QRForm className="QRform">
+           
+                <input onChange={handleChange} type="text" id="person_name" name="person_name" placeholder="Your Name"/>
 
-                <label htmlFor="business_name">Your Business's Name:</label>
-                <input onChange={handleChange} type="text" id="business_name" name="business_name"/>
+                <input onChange={handleChange} type="text" id="business_name" name="business_name" placeholder="Your Business Name"/>
 
-                <label htmlFor="category">Type Of Business:</label>
-                <input onChange={handleChange} type="text" id="category" name="category"/>
+                <input onChange={handleChange} type="text" id="category" name="category" placeholder="Category"/>
                 
-                <label  htmlFor="url_string">Card URL:</label>
-                <input onChange={handleChange}  type="text" id="url_string" name="url_string"/>
+                <input onChange={handleChange}  type="text" id="url_string" name="url_string" placeholder="Card Image Url"/>
 
-                <label htmlFor="email">Email:</label>
-                <input onChange={handleChange}  type="text" id="email" name="email"/>
+                <input onChange={handleChange}  type="text" id="email" name="email" placeholder="Email Address"/>
 
-                <label htmlFor="phone_number">Phone Number:</label>
-                <input onChange={handleChange}  type="text" id="phone_number" name="phone_number"/>
+                <input onChange={handleChange}  type="text" id="phone_number" name="phone_number" placeholder="Phone Number"/>
 
                 <label htmlFor="myInput">QR Link</label>
                 <input type="text" id="myInput" value={QR}/>
                 <Button onClick={myFunction}>Copy Link</Button><span>{text}</span>
-        </form>
+        </QRForm>
         
         </BusinessContainer>
     )

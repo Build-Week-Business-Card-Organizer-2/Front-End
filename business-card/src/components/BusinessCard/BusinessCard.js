@@ -1,6 +1,6 @@
 import React, { useState,useEffect,useContext, Profiler } from 'react';
 import axiosWithAuth from '../Axios/axiosWithAuth'
-import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch,Link, NavLink} from 'react-router-dom';
 import MyCardsList from './MyCardsList';
 import CardsList from './CardsList';
 import CreateCards from './CreateCards'
@@ -8,7 +8,9 @@ import {Context} from '../Context/Context';
 import axios from 'axios';
 import QRCard from '../NEEDWORK(BUSINESSCARD)/QRCard'
 import Articles from '../NEEDWORK(BUSINESSCARD)/Articles'
-import './BusinessCardStyles/styles.css'
+import './BusinessCardStyles/styles.css';
+import {DashboardSide, LayoutPosition,Navigation, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+
 export default function BusinessCard(props){
     const [profile,setProfile]=useState({
         name:'',
@@ -49,7 +51,7 @@ export default function BusinessCard(props){
             setCollection([...collection,...res.data])
         })
 
-    },[]);
+    },[collection, profile]);
 
     const handleChange=(e)=>{
         setQR(e.target.value);
@@ -62,31 +64,41 @@ export default function BusinessCard(props){
         })
     }
     return(
-        <div>
-            <div className="profile">
-                <div className="profile_img">
-                  <img src={profile.profile_img_src}/>
-                </div>
+        <DashboardMain className="main">
+        <DashboardProfileSection className="article">
+
+<ProfileContainer>
+            <ProfileSection className="profile">
+                <Flex>
+                <ImageCropper className="profile_img">
+                  <img alt={`${profile.name}`} src={`${profile.profile_img_src }`|| `https://picsum.photos/200`} />
+                </ImageCropper>
                 <div className="profile_details">
-                    <h1>Welcome {profile.name}</h1>
-                    <h3>{profile.job_description}</h3>
-                    <h3>{profile.email}</h3>
-                    <h3>{profile.phone_number}</h3>
+                    <h1>Welcome {profile.name || 'Ebi'}</h1>
+                    <h3>{profile.job_description || 'Student'}</h3>
                 </div>
-            </div>
-            <div className="QRcode">
-                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example"/>
-                    <h3>Enter QR code URL<span> (Make sure URL encoded) </span></h3>
-                    <input onChange={handleChange}/>
-                    <div>{value}</div>
-                    <button onClick={handleSubmit}>Submit</button>
-            </div>
-        <Router>
-            <QRCard/>
+
+                </Flex>
+                <div className="bio">
+                <h3>{profile.email || 'ebi@aol.com'}</h3>
+                    <h3>{profile.phone_number || '3174444444'}</h3>
+                </div>
+            </ProfileSection>
+            </ProfileContainer>
+
+{/*Possibility of Adding ProfileContainer */}
+            <Router>
+            
             <div className="collections">
-                <Link to="/profile/mycards">My Collections</Link>
-                <Link to="/profile/findcards">Find a Business Cards</Link>
-                <Link to="/profile/createcards">Create a Card</Link>
+            <Navigation className="item-sub-nav" style={
+  {display:'inline-flex', margin: '50px 0px 50px 0px',
+  paddingLeft: '0px',
+  paddingRight: '0px',
+  }}>
+                <NavLink to="/profile/mycards">My Collections</NavLink>
+                <NavLink to="/profile/findcards">Find a Business Cards</NavLink>
+                <NavLink to="/profile/createcards">Create a Card</NavLink>
+                </Navigation>
             </div>
             <Switch>
                 <Context.Provider value={{cards,addToCollection,collection,setCards,deleteFromCollection}}>
@@ -98,7 +110,25 @@ export default function BusinessCard(props){
                 </Context.Provider>
             </Switch> 
         </Router>
-        
-        </div>
+  
+
+            </DashboardProfileSection>
+
+            <DashboardSide>
+            
+            <BusinessContainer style={{
+            padding: '30px', margin: '30px' 
+            }}>
+            <div>
+                    <h3>Enter QR code URL<span> (Make sure URL encoded) </span></h3>
+                    <input onChange={handleChange} className="input"/>
+                    <div>{value}</div>
+                    <Button onClick={handleSubmit}>Submit</Button>
+            </div>
+            </BusinessContainer>
+            <QRCard/>
+            </DashboardSide>       
+        </DashboardMain>
+    
     )
 }
