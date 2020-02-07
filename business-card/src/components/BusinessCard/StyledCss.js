@@ -193,6 +193,21 @@ input {
     border-width: 0 0 3px;
   }
 
+`
+
+export const CreateCardForm = styled.form
+`
+input {
+    outline: 0;
+    border-width: 0 0 1px;
+    border-color: black;
+    height: 50px;
+
+  }
+  input:focus {
+    border-color: #1EA7FC
+    border-width: 0 0 3px;
+  }
 
 `
 

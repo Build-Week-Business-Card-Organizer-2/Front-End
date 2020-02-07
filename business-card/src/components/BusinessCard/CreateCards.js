@@ -1,6 +1,8 @@
 import React,{useState,useContext} from 'react';
 import {Context} from "../Context/Context";
-import axiosWithAuth from '../Axios/axiosWithAuth'
+import axiosWithAuth from '../Axios/axiosWithAuth';
+import {CreateCardForm, Button, ProfileContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+
 
 export default function CreateCards(props){
     const [form,setForm]=useState({
@@ -61,29 +63,29 @@ export default function CreateCards(props){
     }
     return (
         <div className="createCard">
-            <form>
+            <CreateCardForm>
                 <h1>Create a Business Card</h1>
-                <label htmlFor="person_name">Your Name:</label>
-                <input onChange={handleChange} type="text" id="person_name" name="person_name"/>
+            
+                <input onChange={handleChange} type="text" id="person_name" name="person_name" placeholder="Your Name"/>
 
-                <label htmlFor="business_name">Your Business's Name:</label>
-                <input onChange={handleChange}  type="text" id="business_name" name="business_name"/>
+    
+                <input onChange={handleChange}  type="text" id="business_name" name="business_name" placeholder="Your Business Name"/>
 
-                <label htmlFor="category">Type Of Business:</label>
-                <input onChange={handleChange} type="text" id="category" name="category"/>
+          
+                <input onChange={handleChange} type="text" id="category" name="category" placeholder="Category"/>
                 
-                <label htmlFor="url_string">Card URL:</label>
-                <input onChange={handleChange} type="text" id="url_string" name="url_string"/>
+        
+                <input onChange={handleChange} type="text" id="url_string" name="url_string" placeholder="Card Image URL"/>
 
-                <label htmlFor="email">Email:</label>
-                <input onChange={handleChange} type="text" id="email" name="email"/>
+           
+                <input onChange={handleChange} type="text" id="email" name="email" placeholder="Email"/>
 
-                <label htmlFor="phone_number">Phone Number:</label>
-                <input onChange={handleChange} type="text" id="phone_number" name="phone_number"/>
+        
+                <input onChange={handleChange} type="text" id="phone_number" name="phone_number" placeholder="Phone Number"/>
 
                 <button onClick={handleSubmit}>Submit</button>
 
-            </form>
+            </CreateCardForm>
         </div>
     )
 }
