@@ -49,7 +49,7 @@ export default function BusinessCard(props){
             setCollection([...collection,...res.data])
         })
 
-    },[]);
+    },[collection, profile]);
 
     const handleChange=(e)=>{
         setQR(e.target.value);
@@ -63,9 +63,11 @@ export default function BusinessCard(props){
     }
     return(
         <div>
+           <h1>
+           {profile ? 'Yes, its rendering' : 'Not rendering'}</h1> 
             <div className="profile">
                 <div className="profile_img">
-                  <img src={profile.profile_img_src}/>
+                  <img alt={`${profile.name}`} src={profile.profile_img_src}/>
                 </div>
                 <div className="profile_details">
                     <h1>Welcome {profile.name}</h1>
