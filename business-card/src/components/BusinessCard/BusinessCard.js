@@ -114,14 +114,18 @@ export default function BusinessCard(props){
             </DashboardProfileSection>
 
             <DashboardSide>
-            <QRCard/>
-            <div className="QRcode">
-                    <h3>Enter QR code URL<span> (Make sure URL encoded) </span></h3>
-                    <input onChange={handleChange}/>
-                    <div>{value}</div>
-                    <button onClick={handleSubmit}>Submit</button>
-            </div>
             
+            <BusinessContainer style={{
+            padding: '30px', margin: '30px' 
+            }}>
+            <div>
+                    <h3>Enter QR code URL<span> (Make sure URL encoded) </span></h3>
+                    <input onChange={handleChange} className="input"/>
+                    <div>{value}</div>
+                    <Button onClick={handleSubmit}>Submit</Button>
+            </div>
+            </BusinessContainer>
+            <QRCard/>
             </DashboardSide>       
         </DashboardMain>
     
