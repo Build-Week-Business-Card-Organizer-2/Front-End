@@ -254,7 +254,7 @@ border-radius: 20px;
 font-family: 'Ubuntu', sans-serif;
 
 h1{
-font-family: 'Ubuntu', sans-serif;
+
 font-style: normal;
 font-weight: normal;
 font-size: 24px;
@@ -262,7 +262,6 @@ line-height: 28px;
 }
 
 h3{
-  font-family: Ubuntu;
 font-style: normal;
 font-weight: normal;
 font-size: 14px;
