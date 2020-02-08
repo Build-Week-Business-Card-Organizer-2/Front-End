@@ -9,6 +9,18 @@ export default function CardsList(){
     return(
         <div>
             <h1>Search For A Business Card</h1>
+            <form >
+        <input
+        className="input"
+          id="chars"
+          text="text"
+          onChange={''/*props.location.handleSearchChange*/}
+          // value={props.location.query}
+          name="chars"
+          placeholder="search by name"
+        />
+      </form>
+
             <div className="cardsList">
                 {cards.map(item=>(
                     <Item key={item.id} props={item}/>
