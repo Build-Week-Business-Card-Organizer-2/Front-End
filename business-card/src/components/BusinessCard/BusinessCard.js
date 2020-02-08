@@ -74,7 +74,7 @@ export default function BusinessCard(props){
                 <img alt={`${profile.name}`} className="myimg" src={`${profile.profile_img_src }`|| `https://picsum.photos/200`} />
                 </CroppedImg>
                 <div className="profile_details">
-                    <h1>Welcome {profile.name || 'Ebi'}</h1>
+                    <h1>Welcome, {profile.name || 'Ebi'}</h1>
                     <h3>{profile.job_description || 'Student'}</h3>
                 </div>
                 </Flex>

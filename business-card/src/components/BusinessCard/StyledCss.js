@@ -6,7 +6,28 @@ export const ProfileContainer = styled.div
 `
 border: 1px solid #f3f3f3;
 border-radius: 20px ;
-box-shadow: 0px 5px 5px -4px #cacaca;`;
+box-shadow: 0px 5px 5px -4px #cacaca;
+
+
+h1{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 23px;
+
+color: #343C47;
+mix-blend-mode: normal;
+}
+.profile_details{
+  text-align: left;
+}
+h3{
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 16px;
+}
+`;
 
 export const BusinessContainer = styled.div
 `border: 1px solid #f3f3f3;
@@ -67,6 +88,7 @@ border-radius: 50%;`
 
 export const DashboardMain = styled.div
 `
+font-family: Ubuntu;
 margin: 100px;
 margin-top: 50px;
 display: flex;
