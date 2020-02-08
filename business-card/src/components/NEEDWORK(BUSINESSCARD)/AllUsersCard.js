@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Route, Link } from 'react-router-dom'
 import axios from 'axios';
 import axiosWithAuth from '../Axios/axiosWithAuth'
+import {Button, CardsListContainer} from "../BusinessCard/StyledCss";
 
 export default function AllUsersCard2(){
 const [data, setData] = useState([]);
@@ -57,7 +58,8 @@ const [query, setQuery] = useState("");
       {console.log("~", data)}
       {data.map(item => (
         
-        <div style={{background : 'tomato', margin: '20px', width: '350px', height: '200px'}}>
+        <CardsListContainer className="all cards" style={{ margin: '20px', width: '350px', fontSize: '16px',
+        padding: '20px'}}>
             <span onClick={addToUserListHandler} style={{cursor: 'pointer'}}> ⭐️</span>
                       <img alt={item.person_name} src='https://picsum.photos/200' style={{width: '50px', height: '50px'}}/>
 
@@ -66,7 +68,7 @@ const [query, setQuery] = useState("");
           <p>{item.email}</p>
         <p>{item.category}</p>
 
-        </div>
+        </CardsListContainer>
 
             // </div>
         

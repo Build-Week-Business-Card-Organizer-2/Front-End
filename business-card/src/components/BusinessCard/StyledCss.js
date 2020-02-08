@@ -251,6 +251,7 @@ background: #FAFAFA;
 box-shadow: 0px 5px 5px -4px #cacaca;
 border: 1px solid #f3f3f3;
 border-radius: 20px;
+font-family: 'Ubuntu', sans-serif;
 
 h1{
 font-family: 'Ubuntu', sans-serif;
@@ -271,6 +272,13 @@ line-height: 20px;
 
 .delete{
   background: #fb7171;
+}
+
+.all{
+  margin: 20px;
+  width: 350px;
+  font-size: 20px;
+  padding: 20px;
 }
 `
 
