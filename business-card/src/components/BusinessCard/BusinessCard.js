@@ -1,6 +1,6 @@
 import React, { useState,useEffect,useContext, Profiler } from 'react';
 import axiosWithAuth from '../Axios/axiosWithAuth'
-import {BrowserRouter as Router, Route, Switch,Link, NavLink} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch,Link, NavLink, Redirect} from 'react-router-dom';
 import MyCardsList from './MyCardsList';
 import CardsList from './CardsList';
 import CreateCards from './CreateCards'
@@ -106,6 +106,7 @@ export default function BusinessCard(props){
                     </Route>
                     <Route path="/profile/findcards" component={CardsList}/> 
                     <Route path="/profile/createcards" component={CreateCards}/>
+                    <Redirect to="/profile/findcards" />
                 </Context.Provider>
             </Switch> 
         </Router>

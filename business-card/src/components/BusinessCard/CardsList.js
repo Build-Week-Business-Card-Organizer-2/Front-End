@@ -9,17 +9,6 @@ export default function CardsList(){
     return(
         <div>
             <h1>Search For A Business Card</h1>
-            <form >
-        <input
-        className="input"
-          id="chars"
-          text="text"
-          onChange={''/*props.location.handleSearchChange*/}
-          // value={props.location.query}
-          name="chars"
-          placeholder="search by name"
-        />
-      </form>
 
             <div className="cardsList">
                 {cards.map(item=>(
@@ -37,7 +26,6 @@ const Item=({props})=>{
         addToCollection(props)
         axiosWithAuth().post(`api/users/cards/${localStorage.getItem('userID')}/${props.id}`)
         .then(response=>{
-            console.log(response, '<--hello there');
         })
     }
     return(
