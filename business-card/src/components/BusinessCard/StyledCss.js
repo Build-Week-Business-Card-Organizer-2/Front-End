@@ -102,7 +102,12 @@ align-content: center;
 export const DashboardProfileSection = styled.div
 `
 flex: 2;
-flexShrink: 3.4;`
+flexShrink: 3.4;
+
+.active{
+  color: #1EA7FC;
+    font-weight: bolder;
+}`
 
 export const DashboardSide = styled.div
 `

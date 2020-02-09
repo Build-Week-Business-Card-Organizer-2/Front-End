@@ -5,14 +5,17 @@ import {Button, CardsListContainer, GlobalStyle, ProfileContainer, ProfileSectio
 
 export default function MyCardsList(){
     const collection=useContext(Context).collection;
+    console.log('collection -->', collection)
     return(
         <div>
+            {collection.length === 0 ? <h3>Your collection is empty </h3>: <div>
             <h1>My Business Card Collection</h1>
             <div className="cardList">
                 {collection.map(item=>(
                     <Item key={item.id} props={item}/>
                 ))}
-            </div>
+            </div> 
+            </div>}
         </div>
     )
 }

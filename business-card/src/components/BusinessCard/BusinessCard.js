@@ -9,7 +9,17 @@ import axios from 'axios';
 import QRCard from '../NEEDWORK(BUSINESSCARD)/QRCard'
 import Articles from '../NEEDWORK(BUSINESSCARD)/Articles'
 import './BusinessCardStyles/styles.css';
-import {DashboardSide, CroppedImg, Navigation, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex} from "./StyledCss";
+import { 
+    DashboardSide,
+    CroppedImg,
+    Navigation,
+    DashboardProfileSection,
+    DashboardMain,
+    Button,
+    ProfileContainer,
+    BusinessContainer,
+    ProfileSection,
+    Flex} from "./StyledCss";
 
 export default function BusinessCard(props){
     const [profile,setProfile]=useState({
@@ -71,11 +81,12 @@ export default function BusinessCard(props){
             <ProfileSection className="profile">
                 <Flex>
                <CroppedImg>
-                <img alt={`${profile.name}`} className="myimg" src={`${profile.profile_img_src }`|| `https://picsum.photos/200`} />
+                <img alt={`${profile.name}`} className="myimg" src={`${(profile.profile_img_src !== 'null') ? profile.profile_img_src : 'https://api.adorable.io/avatars/200/abott@adorable'}`}/>
+
                 </CroppedImg>
                 <div className="profile_details">
-                    <h1>Welcome, {profile.name || 'Ebi'}</h1>
-                    <h3>{profile.job_description || 'Student'}</h3>
+                    <h1>Welcome, {profile.name || 'Stranger'}</h1>
+                    <h3>{profile.job_description || 'New User'}</h3>
                 </div>
                 </Flex>
                 <div className="bio">
@@ -106,7 +117,7 @@ export default function BusinessCard(props){
                     </Route>
                     <Route path="/profile/findcards" component={CardsList}/> 
                     <Route path="/profile/createcards" component={CreateCards}/>
-                    <Redirect to="/profile/findcards" />
+                    <Redirect to="/profile/mycards" />
                 </Context.Provider>
             </Switch> 
         </Router>
