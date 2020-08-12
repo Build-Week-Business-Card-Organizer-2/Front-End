@@ -1,13 +1,12 @@
-import React, { useState,useEffect,useContext, Profiler } from 'react';
+import React, { useState,useEffect} from 'react';
 import axiosWithAuth from '../Axios/axiosWithAuth'
-import {BrowserRouter as Router, Route, Switch,Link, NavLink, Redirect} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, NavLink, Redirect} from 'react-router-dom';
 import MyCardsList from './MyCardsList';
 import CardsList from './CardsList';
 import CreateCards from './CreateCards'
 import {Context} from '../Context/Context';
 import axios from 'axios';
 import QRCard from '../NEEDWORK(BUSINESSCARD)/QRCard'
-import Articles from '../NEEDWORK(BUSINESSCARD)/Articles'
 import './BusinessCardStyles/styles.css';
 import { 
     DashboardSide,

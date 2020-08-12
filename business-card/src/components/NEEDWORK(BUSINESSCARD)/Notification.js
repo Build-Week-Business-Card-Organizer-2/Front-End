@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ProfileCard from './ProfileCard';
+
 
 
 export default function Notification(props){

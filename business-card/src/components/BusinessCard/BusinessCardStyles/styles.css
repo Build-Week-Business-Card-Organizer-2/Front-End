@@ -1,14 +1,6 @@
 .collections a{
     margin:5%;
   }
-  /* .profile{
-    display:flex;
-    justify-content: center;
-    background-color: rgb(124, 204, 218);
-    border-radius:200px;
-    margin:5%;
-    padding:5%;
-  } */
   .cards{
     background-color:rgb(226, 151, 151);
     width:25em;
@@ -35,7 +27,6 @@
   .createCard{
     display: flex;
     justify-content: center;
-    /* margin:5%; */
   }
   .createCard div{
     margin: 15% 5% 5% 5%;
@@ -44,8 +35,6 @@
       border-radius: 50px;
       margin: 5% 25% 25% 25%;
       padding:3%;
-      /* background-color:rgb(182, 219, 236); */
-
   }
   .createCard form{
     display:flex;
@@ -61,10 +50,8 @@
   .collections a:hover{
     padding:1%;
     margin:0%;
-    /* background-color:rgb(142, 205, 247); */
   }
   .sc-fzozJi{
-      /* background-color:rgb(132, 237, 255); */
       display:flex;
       flex-direction: column;
       align-items: center;

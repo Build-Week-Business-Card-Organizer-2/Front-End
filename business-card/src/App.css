@@ -7,17 +7,8 @@
   pointer-events: none;
 }
 
-.navInput
-{
-  /* position: absolute; */
-}
-.input
-{
+.input{
 
-/* left: 0%;
-right: 0%;
-top: 0%;
-bottom: 0%; */
 width: 200px;
 border-radius: 5px;
 border: none;
@@ -78,9 +69,4 @@ border-radius: 3px;
   margin: 0 auto;
   text-align: left;
 }
-body{
-  /* background-color:rgb(226, 226, 255); */
-}
-/* #myInput{
-  display:none;
-} */
+

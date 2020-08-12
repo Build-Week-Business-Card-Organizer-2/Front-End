@@ -23,10 +23,6 @@ margin: 2em 0em 2em 0em;
 padding: .75em 2em;
 width: 100%;
 `;
-const P =styled.p`
-margin: 0rem;
-font-size: .65rem;
-`;
 const Input = styled.input`
   width: 300px;
   height: 1.5rem;

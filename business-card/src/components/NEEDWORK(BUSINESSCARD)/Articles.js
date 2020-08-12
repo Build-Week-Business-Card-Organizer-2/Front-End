@@ -1,5 +1,5 @@
 import React from 'react';
-import {BusinessContainer, ProfileContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+import {BusinessContainer} from "./StyledCss";
 
 
 export default function Articles(){

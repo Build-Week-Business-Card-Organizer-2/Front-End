@@ -19,7 +19,6 @@ function App() {
               <Link to="/allusercards">All User Cards </Link> 
               <Link to="/profile">Profile</Link>
           </div>
-          {/* <BusinessCard /> */}
           <Switch>
 
           <Route exact path="/">
@@ -32,7 +31,6 @@ function App() {
          <Route path="/login" component={Login}/>
                   <Route exact path="/allusercards" component={AllUsersCards}/>
         </Switch>
-         {/* <Route exact path="/allusercards" component={AllUsersCards}/> */}
       </Router>
     </div>
   );

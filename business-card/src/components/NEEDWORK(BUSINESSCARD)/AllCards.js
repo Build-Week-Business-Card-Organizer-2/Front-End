@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Route, Switch,Link, NavLink} from 'react-router-dom';
-import axios from 'axios';
+import {BrowserRouter as Router, Route, Switch, NavLink} from 'react-router-dom';
 import axiosWithAuth from '../Axios/axiosWithAuth'
 import CardItems from './CardItems';
 import MyCardCollection from './MyCardCollection'
-import {Navigation, ProfileContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+import {Navigation} from "./StyledCss";
 
 
 // We need to continuously re

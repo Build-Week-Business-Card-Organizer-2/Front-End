@@ -1,7 +1,7 @@
 import React,{useState,useContext} from 'react';
 import {Context} from "../Context/Context";
 import axiosWithAuth from '../Axios/axiosWithAuth';
-import {CreateCardForm, Button, ProfileContainer, ProfileSection, Flex, ImageCropper, WrapDiv, CropImg, CropThumb, AlignLeft, ProfileArticle} from "./StyledCss";
+import {CreateCardForm, Button} from "./StyledCss";
 
 
 export default function CreateCards(props){
