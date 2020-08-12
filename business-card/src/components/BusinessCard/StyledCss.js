@@ -296,9 +296,7 @@ border-radius: 3px;
  
 `;
 
- const Container = styled.div`
-  text-align: center;
-`
+
 
 export const WrapDiv = styled.div`
 border-radius:  10px;
@@ -399,5 +397,3 @@ h3{
 `;
 
 
-
-// export default (Button, WrapDiv)
