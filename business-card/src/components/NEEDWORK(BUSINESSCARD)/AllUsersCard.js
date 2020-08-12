@@ -66,10 +66,7 @@ const [query, setQuery] = useState("");
           <p>{item.email}</p>
         <p>{item.category}</p>
 
-        </CardsListContainer>
-
-            // </div>
-        
+        </CardsListContainer>        
       ))}
     </div>
     </div>
