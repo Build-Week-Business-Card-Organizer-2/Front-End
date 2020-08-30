@@ -41,6 +41,8 @@ export default function BusinessCard(props){
     useEffect(() => {
         axiosWithAuth().get('/api/users/cards')
         .then(response=>{
+            console.log("HRWPKLHRPOKWAPOHRKWAPOKHRPOW")
+            console.log(response)
             setCards(response.data);
             setProfile({
                 ...profile,
