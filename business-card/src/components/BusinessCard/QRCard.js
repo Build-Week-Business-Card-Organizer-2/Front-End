@@ -51,11 +51,13 @@ export default function QRCard(){
     }
     function myFunction(e) {
         e.preventDefault();
+        console.log(QR)
         var copyText = document.getElementById("myInput");
         copyText.select();
         copyText.setSelectionRange(0, 99999)
         document.execCommand("copy");
-        setText('Link Coppied');
+        setText('Link Coppied')
+        document.querySelectorAll(".QR-input").forEach(element => element.value="")
         setQR('https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=Example')
       }
     return(
@@ -69,17 +71,17 @@ export default function QRCard(){
         </QRContainer>
         <QRForm className="QRform">
            
-                <input onChange={handleChange} type="text" id="person_name" name="person_name" placeholder="Your Name"/>
+                <input onChange={handleChange} type="text" className="QR-input" id="person_name" name="person_name" placeholder="Your Name"/>
 
-                <input onChange={handleChange} type="text" id="business_name" name="business_name" placeholder="Your Business Name"/>
+                <input onChange={handleChange} type="text" className="QR-input" id="business_name" name="business_name" placeholder="Your Business Name"/>
 
-                <input onChange={handleChange} type="text" id="category" name="category" placeholder="Category"/>
+                <input onChange={handleChange} type="text" className="QR-input" id="category" name="category" placeholder="Category"/>
                 
-                <input onChange={handleChange}  type="text" id="url_string" name="url_string" placeholder="Card Image Url"/>
+                <input onChange={handleChange}  type="text" className="QR-input" id="url_string" name="url_string" placeholder="Card Image Url"/>
 
-                <input onChange={handleChange}  type="text" id="email" name="email" placeholder="Email Address"/>
+                <input onChange={handleChange}  type="text" className="QR-input" id="email" name="email" placeholder="Email Address"/>
 
-                <input onChange={handleChange}  type="text" id="phone_number" name="phone_number" placeholder="Phone Number"/>
+                <input onChange={handleChange}  type="text" className="QR-input" id="phone_number" name="phone_number" placeholder="Phone Number"/>
 
                 <label htmlFor="myInput">QR Link</label>
                 <input type="text" id="myInput" value={QR}/>

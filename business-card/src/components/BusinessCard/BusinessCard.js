@@ -59,7 +59,10 @@ export default function BusinessCard(){
         setQR(e.target.value);
     }
     const handleSubmit=(e)=>{
-        axios.get(`http://api.qrserver.com/v1/read-qr-code/?fileurl=${QR}`)
+        let encodedURL=encodeURI(QR)
+        let encode = encodeURIComponent(encodedURL)
+        console.log(encode)
+        axios.get(`http://api.qrserver.com/v1/read-qr-code/?fileurl=${encode}`)
         .then(response=>{
             setValue(response.data[0].symbol[0].data)
         })
