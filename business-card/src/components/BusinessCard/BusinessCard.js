@@ -17,7 +17,6 @@ export default function BusinessCard(){
         phone_number:'',
         profile_img_src:''
     })
-
     const [QR,setQR]=useState('');
     const [value,setValue]=useState('');
     const [cards,setCards]=useState([])
@@ -31,28 +30,32 @@ export default function BusinessCard(){
     }
 // added collection and profile as a useEffect parameters
     useEffect(() => {
-        axiosWithAuth().get('/api/users/cards')
-        .then(response=>{
-            setCards(response.data);
-            setProfile({
-                ...profile,
-                name:localStorage.getItem('name'),
-                email:localStorage.getItem('email'),
-                job_description:localStorage.getItem('job_description'),
-                phone_number:localStorage.getItem('phone_number'),
-                profile_img_src:localStorage.getItem('profile_img_src')
+        const profile_render = () =>{
+            axiosWithAuth().get('/api/users/cards')
+            .then(response=>{
+                setCards(response.data);
+                setProfile({
+                    ...profile,
+                    name:localStorage.getItem('name'),
+                    email:localStorage.getItem('email'),
+                    job_description:localStorage.getItem('job_description'),
+                    phone_number:localStorage.getItem('phone_number'),
+                    profile_img_src:localStorage.getItem('profile_img_src')
+                })
             })
-        })
-        .catch(error=>{
-            console.log(error)
-        })
-        axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection/`)
-        .then(res=>{
-            console.log(res);
-            setCollection([...collection,...res.data])
-        })
+            .catch(error=>{
+                console.log(error)
+            })
+            axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection/`)
+            .then(res=>{
+                console.log(res);
+                setCollection([...collection,...res.data])
+            })
+        }
+        profile_render();
+    },[]);
+    
 
-    },[collection,profile]);
 
     const handleChange=(e)=>{
         setQR(e.target.value);
