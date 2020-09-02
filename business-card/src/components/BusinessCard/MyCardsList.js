@@ -5,7 +5,6 @@ import {Button, CardsListContainer} from "./StyledCss";
 
 export default function MyCardsList(){
     const collection=useContext(Context).collection;
-    console.log('collection -->', collection)
     return(
         <div>
             {collection.length === 0 ? <h3>Your collection is empty </h3>: <div>
@@ -20,7 +19,6 @@ export default function MyCardsList(){
     )
 }
 const Item=({props})=>{
-    console.log(props)
     const handleChange=(e)=>{
         axiosWithAuth().delete(`api/users/cards/${localStorage.getItem('userID')}/${props.id}`)
     }

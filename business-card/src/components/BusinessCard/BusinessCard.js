@@ -9,6 +9,8 @@ import axios from 'axios';
 import QRCard from './QRCard'
 import { DashboardSide, CroppedImg, Navigation, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex} from "./StyledCss";
 
+
+
 export default function BusinessCard(){
     const [profile,setProfile]=useState({
         name:'',
@@ -30,12 +32,10 @@ export default function BusinessCard(){
     }
 // added collection and profile as a useEffect parameters
     useEffect(() => {
-        const profile_render = () =>{
             axiosWithAuth().get('/api/users/cards')
             .then(response=>{
                 setCards(response.data);
                 setProfile({
-                    ...profile,
                     name:localStorage.getItem('name'),
                     email:localStorage.getItem('email'),
                     job_description:localStorage.getItem('job_description'),
@@ -49,10 +49,8 @@ export default function BusinessCard(){
             axiosWithAuth().get(`api/users/cards/${localStorage.getItem('userID')}/collection/`)
             .then(res=>{
                 console.log(res);
-                setCollection([...collection,...res.data])
+                setCollection([...res.data])
             })
-        }
-        profile_render();
     },[]);
     
 
@@ -83,8 +81,8 @@ export default function BusinessCard(){
                 </div>
                 </Flex>
                 <div className="bio">
-                <h3>{profile.email || 'ebi@aol.com'}</h3>
-                    <h3>{profile.phone_number || '3174444444'}</h3>
+                <h3>Email: {profile.email || 'ebi@aol.com'}</h3>
+                    <h3>Number: {profile.phone_number || '3174444444'}</h3>
                 </div>
             </ProfileSection>
             </ProfileContainer>
