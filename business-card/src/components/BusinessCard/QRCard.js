@@ -64,7 +64,7 @@ export default function QRCard(){
             }}>
         <QRContainer>
             <div className="QR">
-                <img src={QR}/>
+                <img src={QR} alt="QR Code"/>
             </div>   
         </QRContainer>
         <QRForm className="QRform">

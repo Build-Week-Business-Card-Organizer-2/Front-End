@@ -6,21 +6,10 @@ import CardsList from './CardsList';
 import CreateCards from './CreateCards'
 import {Context} from '../Context/Context';
 import axios from 'axios';
-import QRCard from '../NEEDWORK(BUSINESSCARD)/QRCard'
-import './BusinessCardStyles/styles.css';
-import { 
-    DashboardSide,
-    CroppedImg,
-    Navigation,
-    DashboardProfileSection,
-    DashboardMain,
-    Button,
-    ProfileContainer,
-    BusinessContainer,
-    ProfileSection,
-    Flex} from "./StyledCss";
+import QRCard from './QRCard'
+import { DashboardSide, CroppedImg, Navigation, DashboardProfileSection, DashboardMain, Button, ProfileContainer, BusinessContainer, ProfileSection, Flex} from "./StyledCss";
 
-export default function BusinessCard(props){
+export default function BusinessCard(){
     const [profile,setProfile]=useState({
         name:'',
         job_description:'',
@@ -28,6 +17,7 @@ export default function BusinessCard(props){
         phone_number:'',
         profile_img_src:''
     })
+
     const [QR,setQR]=useState('');
     const [value,setValue]=useState('');
     const [cards,setCards]=useState([])
@@ -35,14 +25,14 @@ export default function BusinessCard(props){
     const addToCollection=(item)=>{
         setCollection([...collection,item]);
     }
+
     const deleteFromCollection=(item)=>{
         
     }
+    
     useEffect(() => {
         axiosWithAuth().get('/api/users/cards')
         .then(response=>{
-            console.log("HRWPKLHRPOKWAPOHRKWAPOKHRPOW")
-            console.log(response)
             setCards(response.data);
             setProfile({
                 ...profile,
@@ -70,7 +60,6 @@ export default function BusinessCard(props){
     const handleSubmit=(e)=>{
         axios.get(`http://api.qrserver.com/v1/read-qr-code/?fileurl=${QR}`)
         .then(response=>{
-            console.log(response.data[0].symbol[0].data);
             setValue(response.data[0].symbol[0].data)
         })
     }
@@ -86,7 +75,7 @@ export default function BusinessCard(props){
 
                 </CroppedImg>
                 <div className="profile_details">
-                    <h1>Welcome, {profile.name || 'Stranger'}</h1>
+                    <h1>{profile.name || 'Stranger'}</h1>
                     <h3>{profile.job_description || 'New User'}</h3>
                 </div>
                 </Flex>
@@ -96,23 +85,17 @@ export default function BusinessCard(props){
                 </div>
             </ProfileSection>
             </ProfileContainer>
-
-{/*Possibility of Adding ProfileContainer */}
             <Router>
             
             <div className="collections">
-            <Navigation className="item-sub-nav" style={
-  {display:'inline-flex', margin: '50px 0px 50px 0px',
-  paddingLeft: '0px',
-  paddingRight: '0px',
-  }}>
+                <Navigation className="item-sub-nav" style={{display:'inline-flex', margin: '50px 0px 50px 0px',paddingLeft: '0px',paddingRight: '0px',}}>
                 <NavLink to="/profile/mycards">My Collections</NavLink>
                 <NavLink to="/profile/findcards">Find a Business Cards</NavLink>
                 <NavLink to="/profile/createcards">Create a Card</NavLink>
                 </Navigation>
             </div>
             <Switch>
-                <Context.Provider value={{cards,addToCollection,collection,setCards,deleteFromCollection}}>
+                <Context.Provider value={{cards,addToCollection,collection, setCards, deleteFromCollection}}>
                     <Route path="/profile/mycards">
                         <MyCardsList/>
                     </Route>

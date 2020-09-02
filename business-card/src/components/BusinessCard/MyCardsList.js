@@ -31,7 +31,7 @@ const Item=({props})=>{
             <h3>{props.email}</h3>
             <h3>{props.phone_number}</h3>
             <Button onClick={handleChange} className="delete">Delete</Button>
-            <img src={props.url_string}/>
+            <img src={props.url_string} alt="bussiness-card"/>
         </CardsListContainer>
     )
 }
