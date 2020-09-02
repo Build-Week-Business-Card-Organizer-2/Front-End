@@ -29,7 +29,7 @@ export default function BusinessCard(){
     const deleteFromCollection=(item)=>{
         
     }
-    
+// added collection and profile as a useEffect parameters
     useEffect(() => {
         axiosWithAuth().get('/api/users/cards')
         .then(response=>{
