@@ -6,6 +6,9 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import BusinessCard from './components/BusinessCard/BusinessCard'
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
 function App() {
+  function logout(){
+    localStorage.clear()
+  }
   return (
     <div className="App">
       <Router>
@@ -14,6 +17,7 @@ function App() {
               <Link to="/login">Login </Link> 
               <Link to="/signUp">Sign Up</Link> 
               <Link to="/profile">Profile</Link>
+              <Link to="/login" onClick={logout}>Log out</Link>
           </div>
           <Switch>
 

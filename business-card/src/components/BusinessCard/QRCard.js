@@ -47,7 +47,7 @@ export default function QRCard(){
                 phone_number:e.target.value
             })
         }
-        setQR(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data= name : ${form.person_name} | business name : ${form.business_name} | Type Of Business : ${form.category} | Card URL : ${form.url_string} | Email : ${form.email} | Phone Number: ${form.phone_number}`)
+        setQR(`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data= name : ${form.person_name} \n business name : ${form.business_name} \n Type Of Business : ${form.category} \n Card URL : ${form.url_string} \n Email : ${form.email} \n Phone Number: ${form.phone_number}`)
     }
     function myFunction(e) {
         e.preventDefault();

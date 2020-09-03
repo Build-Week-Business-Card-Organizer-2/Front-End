@@ -31,6 +31,7 @@ line-height: 16px;
 export const BusinessContainer = styled.div
 `border: 1px solid #f3f3f3;
 border-radius: 20px ;
+width:400px;
 box-shadow: 0px 5px 5px -4px #cacaca;`;
 
 
@@ -43,9 +44,9 @@ div{
     margin: 50px
 }
 .bio{
-    margin-top: -20px;
-    margin-left: 100px;
-    text-align: left;
+    width:100%;
+    display:flex;
+    flex-direction:column;
 }
   `;
 

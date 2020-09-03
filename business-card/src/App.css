@@ -59,7 +59,6 @@ border-radius: 3px;
 }
 .NavBar a{
   color: white;
-  padding: 37px 100px;
   text-decoration: none;
   font-size: 1.2em;
 }
@@ -73,14 +72,16 @@ border-radius: 3px;
   text-align: left;
 }
 
-
-.collections a{
-  margin:5%;
-}
 .cards{
   background-color:rgb(226, 151, 151);
   width:25em;
-  margin: 2%;
+  height: 400px;
+}
+.QR-decoder{
+  display: flex;
+  flex-wrap: wrap;
+  overflow:scroll;
+  padding: 25px;
 }
 .cards img{
   width: 280px;
@@ -113,7 +114,7 @@ border-radius: 3px;
 }
 .createCard button{
     border-radius: 3px;
-    margin: 5% 25% 25% 25%;
+    margin: 5% 25% 0% 25%;
     padding:3%;
 }
 .createCard form{
@@ -157,4 +158,18 @@ border-radius: 3px;
   display:flex;
   flex-wrap: wrap;
   justify-content: row;
+}
+
+
+
+
+
+/* RESPONSIVENESS   MOBILE FIRST */
+
+
+
+@media (min-width:0px){
+  /* body{
+    display:none;
+  } */
 }

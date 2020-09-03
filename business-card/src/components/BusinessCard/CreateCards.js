@@ -85,6 +85,8 @@ export default function CreateCards(props){
 
                 <Button onClick={handleSubmit}>Submit</Button>
 
+                <div className="warning">Please complete the form</div>
+
             </CreateCardForm>
         </div>
     )
