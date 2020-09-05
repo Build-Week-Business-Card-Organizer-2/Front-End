@@ -21,7 +21,7 @@ export default function MyCardsList(){
 const Item=({props})=>{
     const handleChange=(e)=>{
         axiosWithAuth().delete(`api/users/cards/${localStorage.getItem('userID')}/${props.id}`);
-        
+        window.location.reload(true)
     }
     return(
         <CardsListContainer className="cards">
