@@ -25,10 +25,6 @@ export default function BusinessCard(){
     const addToCollection=(item)=>{
         setCollection([...collection,item]);
     }
-
-    const deleteFromCollection=(item)=>{
-        
-    }
 // added collection and profile as a useEffect parameters
     useEffect(() => {
             axiosWithAuth().get('/api/users/cards')
@@ -96,7 +92,7 @@ export default function BusinessCard(){
                         </Navigation>
                     </div>
                     <Switch>
-                        <Context.Provider value={{cards,addToCollection,collection, setCards, deleteFromCollection}}>
+                        <Context.Provider value={{cards,addToCollection,collection, setCards}}>
                             <Route path="/profile/mycards">
                                 <MyCardsList/>
                             </Route>

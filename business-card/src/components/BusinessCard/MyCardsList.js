@@ -20,7 +20,8 @@ export default function MyCardsList(){
 }
 const Item=({props})=>{
     const handleChange=(e)=>{
-        axiosWithAuth().delete(`api/users/cards/${localStorage.getItem('userID')}/${props.id}`)
+        axiosWithAuth().delete(`api/users/cards/${localStorage.getItem('userID')}/${props.id}`);
+        
     }
     return(
         <CardsListContainer className="cards">
