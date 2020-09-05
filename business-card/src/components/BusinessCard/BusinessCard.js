@@ -11,6 +11,7 @@ import { DashboardSide, CroppedImg, Navigation, DashboardProfileSection, Dashboa
 
 
 export default function BusinessCard(){
+    
     const [profile,setProfile]=useState({
         name:'',
         job_description:'',
@@ -18,6 +19,7 @@ export default function BusinessCard(){
         phone_number:'',
         profile_img_src:''
     })
+
     const [QR,setQR]=useState('');
     const [value,setValue]=useState('');
     const [cards,setCards]=useState([])
@@ -67,7 +69,7 @@ export default function BusinessCard(){
         <DashboardMain className="main">
             <DashboardProfileSection className="profile">
                 <ProfileContainer>
-                    <ProfileSection className="profile">
+                    <ProfileSection className="Yer">
                         <Flex>
                             <CroppedImg>
                                 <img alt={`${profile.name}`} className="myimg" src={`${(profile.profile_img_src !== 'null') ? profile.profile_img_src : 'https://api.adorable.io/avatars/200/abott@adorable'}`}/>

@@ -18,7 +18,7 @@ color: #343C47;
 mix-blend-mode: normal;
 }
 .profile_details{
-  text-align: left;
+  text-align: center;
 }
 h3{
 font-style: normal;
@@ -35,7 +35,8 @@ box-shadow: 0px 5px 5px -4px #cacaca;`;
 
 
 export const ProfileSection = styled.div
-`padding: 50px,
+`
+padding: 50px,
 border: 1px solid red
 
 
@@ -51,10 +52,17 @@ div{
 
 export const Flex = styled.div
 `
+@media (min-width:0px){
+  display:flex;
+  justify-content:center;
+  flex-direction: column;
+}
+@media (min-width:850px){
   display: flex;
+  justify-content:left;
   flex-wrap: wrap;
   width: 100%;
-  margin: 50px;
+  margin: 50px 0px;
   flex-direction: row;
 
   .flexy{
@@ -65,6 +73,7 @@ div {
 }
 .description {
     text-align: left;
+}
 }
 `;
 
@@ -87,29 +96,45 @@ border-radius: 50%;`
 
 export const DashboardMain = styled.div
 `
-font-family: Ubuntu;
-margin: 75px 0px;
-display: flex;
-flex-direction: row;
-justify-content: space-evenly;
-align-content: center;
-@media (max-width:500px){
+@media (min-width:0px){
+  display:flex;
+  align-items:center;
   margin:15px;
   flex-direction:column;
-  flex-wrap:wrap;
+  flex-wrap:no-wrap;
 }
+@media (min-width:850px){
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: flex-start;
+}
+font-family: Ubuntu;
+margin: 75px 0px;
+
 `
 
 export const DashboardProfileSection = styled.div
 `
-width:70%;
-margin:30px;
+@media(min-width:0px){
+  width:100%;
+  margin-top:80px;
+}
+@media(min-width:850px){
+  margin-top:30px;
+}
+
 
 `
 
 export const DashboardSide = styled.div
 `
-width:30%;
+@media(min-width:0px){
+  width:280px;
+}
+@media(min-width:500px){
+  width:500px;
+}
+width:280px;
 margin:30px;
 `
 
