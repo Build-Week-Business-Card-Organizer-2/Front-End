@@ -1,10 +1,11 @@
 import React from 'react';
-import './App.css';
 import Login from './components/Login/Login';
 import SignUp from './components/SignUp/SignUp';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import BusinessCard from './components/BusinessCard/BusinessCard'
 import {BrowserRouter as Router, Route, Switch,Link} from 'react-router-dom';
+import './App.css';
+
 function App() {
   function logout(){
     localStorage.clear()

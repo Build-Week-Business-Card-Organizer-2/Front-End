@@ -31,7 +31,6 @@ line-height: 16px;
 export const BusinessContainer = styled.div
 `border: 1px solid #f3f3f3;
 border-radius: 20px ;
-width:400px;
 box-shadow: 0px 5px 5px -4px #cacaca;`;
 
 
@@ -89,29 +88,29 @@ border-radius: 50%;`
 export const DashboardMain = styled.div
 `
 font-family: Ubuntu;
-margin: 100px;
-margin-top: 50px;
+margin: 75px 0px;
 display: flex;
 flex-direction: row;
-justify-content: center;
-flex-wrap: nowrap;
+justify-content: space-evenly;
 align-content: center;
-
+@media (max-width:500px){
+  margin:15px;
+  flex-direction:column;
+  flex-wrap:wrap;
+}
 `
 
 export const DashboardProfileSection = styled.div
 `
-flex: 2;
-flexShrink: 3.4;
+width:70%;
+margin:30px;
 
-.active{
-  color: #1EA7FC;
-    font-weight: bolder;
-}`
+`
 
 export const DashboardSide = styled.div
 `
-
+width:30%;
+margin:30px;
 `
 
 export const Navigation = styled.div
@@ -210,10 +209,8 @@ nav {
 export const QRContainer = styled.div
 `
 background: #1EA7FC;
- width: 300px;
-   width:20em;
-    border-radius: 10px;
-     margin: 10px; 
+border-radius: 10px;
+margin: 10px; 
 
 `
 
@@ -223,8 +220,7 @@ input {
     outline: 0;
     border-width: 0 0 1px;
     border-color: black;
-    width: 250px;
-  }
+}
   input:focus {
     border-color: #1EA7FC
     border-width: 0 0 3px;
